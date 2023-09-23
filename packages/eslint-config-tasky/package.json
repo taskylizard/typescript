@@ -1,0 +1,49 @@
+{
+  "name": "eslint-config-tasky",
+  "type": "module",
+  "packageManager": "pnpm@8.6.12",
+  "description": "tasky's (flat) eslint config.",
+  "version": "0.0.0",
+  "keywords": [
+    "eslint-config"
+  ],
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "eslint . -f pretty",
+    "format": "prettier -w --cache \"**/*.{ts,tsx,mdx,json,astro}\" ",
+    "build": "tsup src/index.ts --format esm --clean --dts"
+  },
+  "peerDependencies": {
+    "eslint": ">=8.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.6.3",
+    "eslint-config-tasky": "workspace:^",
+    "tsup": "^7.2.0"
+  },
+  "dependencies": {
+    "@eslint/js": "^8.49.0",
+    "@ianvs/prettier-plugin-sort-imports": "^4.1.0",
+    "@typescript-eslint/eslint-plugin": "6.7.0",
+    "@typescript-eslint/parser": "6.7.0",
+    "eslint-config-prettier": "9.0.0",
+    "eslint-define-config": "^1.23.0",
+    "eslint-formatter-pretty": "^5.0.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-import-resolver-typescript": "3.6.0",
+    "eslint-plugin-i": "^2.28.1",
+    "eslint-plugin-jsdoc": "^46.8.2",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-markdown": "^3.0.1",
+    "eslint-plugin-n": "^16.1.0",
+    "eslint-plugin-prettier": "5.0.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-unicorn": "^48.0.1",
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "globals": "^13.22.0"
+  }
+}
