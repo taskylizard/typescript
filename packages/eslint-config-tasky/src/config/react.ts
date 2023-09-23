@@ -14,7 +14,10 @@ export const react: FlatESLintConfigItem[] = [
         version: "detect",
       },
     },
-
+    plugins: {
+      react: pluginReact,
+      reacthooks: pluginReactHooks,
+    },
     rules: {
       ...pluginReact.configs.recommended.rules,
       ...pluginReactHooks.configs.recommended.rules,
