@@ -35,7 +35,7 @@ export function tasky(
 
   if (options.react) configs.push(react, JSX11y);
   if (options.astro) configs.push(astro);
-  if (options.jest) configs.push(jest)
+  if (options.jest) configs.push(jest);
 
   if (options.markdown ?? true) configs.push(markdown);
 

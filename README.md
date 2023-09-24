@@ -16,14 +16,15 @@ Contains:
 - Node.js rules
 - JSDoc rules
 - Markdown rules
-- Astro ruless
+- Astro rules
 - Jest rules
 - JavaScript/TypeScript rules (prefixed with `ts/`)
 - Ignores common files you want to ignore anyway
 
-Then make a _flat_ eslint config (`eslint.config.js`):
+Start by creating a _flat_ eslint config (`eslint.config.js`):
 
 ```js
+// @ts-check - important!
 import tasky from "@taskylizard/eslint-config";
 
 export default tasky();
@@ -32,9 +33,11 @@ export default tasky();
 Enable React/Astro/Jest/JavaScript support:
 
 ```js
+// @s-check
 import tasky from "@taskylizard/eslint-config";
 
 export default tasky({
+  /** Disabled by default. */
   react: true,
   jest: true,
   astro: true,
@@ -46,8 +49,9 @@ export default tasky({
 or compose however you want:
 
 ```js
-import { node, javascript } from "@taskylizard/eslint-config";
-import { something, anything } from "some-other-config";
+// @ts-check
+import { javascript, node } from "@taskylizard/eslint-config";
+import { anything, something } from "some-other-config";
 
 export default [...node, ...javascript, ...something, ...anything];
 ```

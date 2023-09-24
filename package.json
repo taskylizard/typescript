@@ -1,6 +1,7 @@
 {
   "name": "@taskylizard/monorepo",
   "private": true,
+  "type": "module",
   "description": "My personal tooling.",
   "scripts": {
     "lint": "pnpm --parallel -r lint",

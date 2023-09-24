@@ -100,9 +100,6 @@ importers:
         specifier: latest
         version: 3.0.3
     devDependencies:
-      '@taskylizard/eslint-config':
-        specifier: workspace:*
-        version: 'link:'
       '@types/node':
         specifier: ^20.6.3
         version: 20.6.3

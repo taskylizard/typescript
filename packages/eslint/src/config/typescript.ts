@@ -3,7 +3,7 @@ import process from "node:process";
 import type { FlatESLintConfigItem } from "eslint-define-config";
 
 import { GLOB_TS, GLOB_TSX } from "../glob";
-import { parserTS, pluginImport, pluginTS } from "../plugins";
+import { parserTS, pluginTS } from "../plugins";
 
 const project = resolve(process.cwd(), "tsconfig.json");
 

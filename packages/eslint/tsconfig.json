@@ -6,6 +6,7 @@
     "baseUrl": ".",
     "esModuleInterop": true,
     "strict": true,
+    "noUnusedLocals": true,
     "skipLibCheck": true
   },
   "include": [

@@ -2,12 +2,27 @@
   "name": "@taskylizard/eslint-config",
   "type": "module",
   "description": "tasky's (flat) eslint config.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "keywords": [
     "eslint-config"
   ],
+  "license": "MIT",
+  "homepage": "https://github.com/taskylizard/typescript#readme",
+  "bugs": {
+    "url": "https://github.com/taskylizard/typescript/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taskylizard/typescript.git"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
   "files": [
     "dist"
   ],
@@ -32,6 +47,7 @@
     "@typescript-eslint/parser": "6.7.2",
     "astro-eslint-parser": "^0.15.0",
     "eslint-config-prettier": "9.0.0",
+    "eslint-plugin-prettier": "5.0.0",
     "eslint-define-config": "^1.23.0",
     "eslint-formatter-pretty": "^5.0.0",
     "eslint-import-resolver-alias": "^1.1.2",
