@@ -1,5 +1,11 @@
 # eslint-config-tasky
 
+## 0.0.2
+
+### Patch Changes
+
+- 61db24c: Fixes
+
 ## 0.0.1
 
 ### Patch Changes
