@@ -25,7 +25,6 @@ export const typescript: FlatESLintConfigItem[] = [
       },
     },
     plugins: {
-      import: pluginImport,
       ts: pluginTS as any,
     },
     rules: {

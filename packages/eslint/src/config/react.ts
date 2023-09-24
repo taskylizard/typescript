@@ -3,7 +3,10 @@ import type { FlatESLintConfigItem } from "eslint-define-config";
 import { pluginImport, pluginReact, pluginReactHooks } from "../plugins";
 
 const disabledRules = {
+  // Handled better by TypeScript
+  "react/no-unknown-property": "off",
   "react/prop-types": "off",
+  // Disables requiring react.
   "react/react-in-jsx-scope": "off",
 } as const;
 
