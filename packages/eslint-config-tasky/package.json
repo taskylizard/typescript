@@ -2,7 +2,7 @@
   "name": "eslint-config-tasky",
   "type": "module",
   "description": "tasky's (flat) eslint config.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "keywords": [
     "eslint-config"
   ],
