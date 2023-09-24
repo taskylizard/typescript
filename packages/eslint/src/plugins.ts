@@ -12,3 +12,4 @@ export { default as pluginPrettier } from "eslint-plugin-prettier";
 export { default as pluginReact } from "eslint-plugin-react";
 export { default as pluginReactHooks } from "eslint-plugin-react-hooks";
 export { default as pluginJSXA11y } from "eslint-plugin-jsx-a11y";
+export { default as pluginEarlyReturn } from "@regru/eslint-plugin-prefer-early-return";

@@ -21,12 +21,14 @@
     "prettier": "latest"
   },
   "devDependencies": {
+    "@taskylizard/eslint-config": "workspace:*",
     "@types/node": "^20.6.3",
     "tsup": "^7.2.0"
   },
   "dependencies": {
     "@eslint/js": "^8.49.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.1.0",
+    "@regru/eslint-plugin-prefer-early-return": "^1.0.0",
     "@typescript-eslint/eslint-plugin": "6.7.2",
     "@typescript-eslint/parser": "6.7.2",
     "eslint-config-prettier": "9.0.0",

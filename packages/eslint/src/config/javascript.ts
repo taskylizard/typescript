@@ -1,7 +1,7 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
 import globals from "globals";
 
-import { pluginUnusedImports } from "../plugins";
+import { pluginEarlyReturn, pluginUnusedImports } from "../plugins";
 
 export const javascript: FlatESLintConfigItem[] = [
   {
@@ -20,6 +20,7 @@ export const javascript: FlatESLintConfigItem[] = [
     },
     plugins: {
       "unused-imports": pluginUnusedImports,
+      "early-return": pluginEarlyReturn,
     },
     rules: {
       /**
@@ -376,6 +377,12 @@ export const javascript: FlatESLintConfigItem[] = [
           varsIgnorePattern: "^_",
         },
       ],
+      /**
+       * Prefer returning early.
+       *
+       * 🚫 Not fixable
+       */
+      "early-return/prefer-early-return": ["error", { maximumStatements: 2 }],
     },
   },
 ];
