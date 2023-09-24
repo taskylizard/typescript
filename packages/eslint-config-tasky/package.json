@@ -1,7 +1,6 @@
 {
   "name": "eslint-config-tasky",
   "type": "module",
-  "packageManager": "pnpm@8.7.6",
   "description": "tasky's (flat) eslint config.",
   "version": "0.0.1",
   "keywords": [
