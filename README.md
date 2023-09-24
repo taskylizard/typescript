@@ -16,4 +16,6 @@ import tasky from "eslint-config-tasky";
 export default tasky();
 ```
 
+---
+
 Copyright (c) 2023 taskylizard. MIT Licensed.
