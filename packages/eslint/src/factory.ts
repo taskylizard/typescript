@@ -1,9 +1,11 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
 
 import {
+  astro,
   ignore,
   imports,
   javascript,
+  jest,
   jsdoc,
   JSX11y,
   markdown,
@@ -32,6 +34,8 @@ export function tasky(
   if (options.typescript ?? true) configs.push(typescript);
 
   if (options.react) configs.push(react, JSX11y);
+  if (options.astro) configs.push(astro);
+  if (options.jest) configs.push(jest)
 
   if (options.markdown ?? true) configs.push(markdown);
 

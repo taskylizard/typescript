@@ -9,3 +9,5 @@ export * from "./pretttier";
 export * from "./react";
 export * from "./typescript";
 export * from "./unicorn";
+export * from "./astro";
+export * from "./jest";
