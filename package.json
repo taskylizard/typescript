@@ -1,0 +1,21 @@
+{
+  "name": "@taskylizard/monorepo",
+  "private": true,
+  "description": "My personal tooling.",
+  "scripts": {
+    "lint": "pnpm --parallel -r lint",
+    "format": "pnpm --parallel -r format",
+    "build": "pnpm --parallel -r build",
+    "release": "pnpm build && pnpm changeset publish",
+    "version-packages": "changeset version"
+  },
+  "author": "taskylizard",
+  "license": "MIT",
+  "dependencies": {
+    "@taskylizard/eslint-config": "workspace:^"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.26.2",
+    "eslint": "^8.50.0"
+  }
+}
