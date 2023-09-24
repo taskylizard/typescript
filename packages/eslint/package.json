@@ -2,7 +2,7 @@
   "name": "@taskylizard/eslint-config",
   "type": "module",
   "description": "tasky's (flat) eslint config.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "keywords": [
     "eslint-config"
   ],
@@ -21,7 +21,6 @@
     "prettier": "latest"
   },
   "devDependencies": {
-    "@taskylizard/eslint-config": "workspace:*",
     "@types/node": "^20.6.3",
     "tsup": "^7.2.0"
   },
