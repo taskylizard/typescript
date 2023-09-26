@@ -26,8 +26,8 @@
     "format": "prettier -w --cache \"**/*.{ts,tsx,mdx,json,astro}\" ",
     "build": "tsup src/index.ts --format esm --clean --dts"
   },
-  "devDependencies": {
-    "@taskylizard/eslint-config": "workspace:^"
+  "peerDependencies": {
+    "@taskylizard/eslint-config": "workspace:latest"
   },
   "dependencies": {
     "c12": "^1.4.2",
