@@ -1,5 +1,11 @@
 # @taskylizard/eslint-config
 
+## 0.0.4
+
+### Patch Changes
+
+- 008f5a4: fix(eslint): update scripts to build cjs
+
 ## 0.0.3
 
 ### Patch Changes
