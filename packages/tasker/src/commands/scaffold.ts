@@ -5,7 +5,9 @@ import {
   generateEslintConfig,
   generateMITLicense,
   generatePackageJson,
+  generateReadme,
   generateTsconfig,
+  getGitignore,
 } from "../template";
 
 export default defineCommand({
@@ -20,13 +22,13 @@ export default defineCommand({
       description: "Name of the project.",
     },
     out: {
-      type: "string",
-      required: true,
+      type: "positional",
+      default: ".",
       description: "Output directory.",
     },
   },
   async run({ args }) {
-    const outdir = resolve(args.out);
+    const outdir = resolve(args.out, args.name);
     await mkdir(outdir);
     await mkdir(resolve(outdir, "src"));
     await Promise.all([
@@ -39,7 +41,11 @@ export default defineCommand({
         generateEslintConfig(),
       ),
       await writeFile(resolve(outdir, "tsconfig.json"), generateTsconfig()),
-      await writeFile(resolve(outdir, "README.md"), `# TODO`),
+      await writeFile(
+        resolve(outdir, "README.md"),
+        await generateReadme(args.name),
+      ),
+      await writeFile(resolve(outdir, ".gitignore"), getGitignore()),
       await writeFile(resolve(outdir, "LICENSE"), generateMITLicense()),
       await writeFile(
         resolve(join(outdir, "src", "index.ts")),

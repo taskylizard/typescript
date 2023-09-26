@@ -1,4 +1,6 @@
-export function generatePackageJson(name: string) {
+import { execa } from "execa";
+
+export function generatePackageJson(name: string): string {
   return `{
   "name": "${name}",
   "type": "module",
@@ -28,14 +30,14 @@ export function generatePackageJson(name: string) {
 }`;
 }
 
-export function generateEslintConfig() {
+export function generateEslintConfig(): string {
   return `// @ts-check
 import tasky from "@taskylizard/eslint-config";
 
 export default tasky();`;
 }
 
-export function generateMITLicense() {
+export function generateMITLicense(): string {
   return `MIT License
 
 Copyright (c) ${new Date().getFullYear()} taskylizard
@@ -59,7 +61,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.`;
 }
 
-export function generateTsconfig() {
+export function generateTsconfig(): string {
   return `{
   "compilerOptions": {
     "target": "es2020",
@@ -79,4 +81,62 @@ export function generateTsconfig() {
     "dist"
   ]
 }`;
+}
+
+async function git(key: string): Promise<string> {
+  const { stdout } = await execa("git", ["config", "--get", key]);
+  return stdout;
+}
+
+// Inspired from crystal init app
+export async function generateReadme(name: string): Promise<string> {
+  return `# ${name}
+
+TODO: Write a description here
+
+## Usage
+
+TODO: Write usage instructions here
+
+## Development
+
+TODO: Write development instructions here
+
+## Contributing
+
+1. Fork it (<https://github.com/${await git("user.name")}/${name}/fork>)
+2. Create your feature branch (\`git checkout -b my-new-feature\`)
+3. Commit your changes (\`git commit -am 'Add some feature'\`)
+4. Push to the branch (\`git push origin my-new-feature\`)
+5. Create a new Pull Request
+
+## Contributors
+
+- [${await git("user.name")}](https://github.com/${await git(
+    "user.name",
+  )}) - creator and maintainer`;
+}
+
+const gitignore = [
+  "**/node_modules",
+  "**/dist",
+  "**/package-lock.json",
+  "**/yarn.lock",
+  "**/output",
+  "**/coverage",
+  "**/temp",
+  "**/.vitepress/cache",
+  "**/.nuxt",
+  "**/.vercel",
+  "**/.idea",
+  "**/.output",
+  "**/.vite-inspect",
+  "**/*.min.*",
+  "**/__snapshots__",
+  "**/auto-import?(s).d.ts",
+  "**/components.d.ts",
+];
+
+export function getGitignore(): string {
+  return gitignore.join("\n");
 }
