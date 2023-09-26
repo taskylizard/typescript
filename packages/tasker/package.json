@@ -1,0 +1,38 @@
+{
+  "name": "@taskylizard/tasker",
+  "type": "module",
+  "description": "My personal CLI.",
+  "version": "0.0.0",
+  "license": "MIT",
+  "homepage": "https://github.com/taskylizard/typescript#readme",
+  "bugs": {
+    "url": "https://github.com/taskylizard/typescript/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taskylizard/typescript.git"
+  },
+  "exports": "./dist/index.js",
+  "bin": {
+    "tasker": "./dist/index.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "eslint . -f pretty --cache",
+    "format": "prettier -w --cache \"**/*.{ts,tsx,mdx,json,astro}\" ",
+    "build": "tsup src/index.ts --format esm --clean --dts"
+  },
+  "devDependencies": {
+    "@taskylizard/eslint-config": "workspace:^"
+  },
+  "dependencies": {
+    "c12": "^1.4.2",
+    "citty": "^0.1.4",
+    "consola": "^3.2.3",
+    "pathe": "^1.1.1"
+  }
+}
