@@ -2,7 +2,7 @@
   "name": "@taskylizard/tasker",
   "type": "module",
   "description": "My personal CLI.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "homepage": "https://github.com/taskylizard/typescript#readme",
   "bugs": {
