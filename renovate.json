@@ -4,6 +4,14 @@
     "config:base",
     ":rebaseStalePrs"
   ],
+  "automerge": true,
+  "automergeType": "branch",
+  "lockFileMaintenance": {
+    "enabled": true
+  },
+  "major": {
+    "automerge": false
+  },
   "packageRules": [
     {
       "groupName": "definitelyTyped",
