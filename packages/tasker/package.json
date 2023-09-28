@@ -2,7 +2,7 @@
   "name": "@taskylizard/tasker",
   "type": "module",
   "description": "My personal CLI.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "homepage": "https://github.com/taskylizard/typescript#readme",
   "bugs": {
@@ -27,8 +27,8 @@
     "build": "tsup src/index.ts --format esm --clean --dts"
   },
   "peerDependencies": {
-    "@taskylizard/eslint-config": "workspace:^",
-    "tsconfig": "workspace:^"
+    "@taskylizard/eslint-config": "workspace:latest",
+    "tsconfig": "workspace:latest"
   },
   "devDependencies": {
     "typescript": "5.2.2"

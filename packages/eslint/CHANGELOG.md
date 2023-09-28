@@ -1,5 +1,11 @@
 # @taskylizard/eslint-config
 
+## 0.0.5
+
+### Patch Changes
+
+- 9befa6d: chore(eslint): update README
+
 ## 0.0.4
 
 ### Patch Changes
