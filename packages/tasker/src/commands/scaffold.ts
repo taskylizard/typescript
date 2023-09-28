@@ -9,6 +9,7 @@ import {
   generateTsconfig,
   getGitignore,
 } from "../template";
+import consola from "consola";
 
 export default defineCommand({
   meta: {
@@ -31,6 +32,7 @@ export default defineCommand({
     const outdir = resolve(args.out, args.name);
     await mkdir(outdir);
     await mkdir(resolve(outdir, "src"));
+    // TODO: refactor this
     await Promise.all([
       await writeFile(
         resolve(outdir, "package.json"),
@@ -52,5 +54,6 @@ export default defineCommand({
         `console.log("hi")`,
       ),
     ]);
+    consola.success("Successfully scaffolded a project.");
   },
 });

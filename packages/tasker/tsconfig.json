@@ -1,19 +1,11 @@
 {
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist"],
   "compilerOptions": {
     "target": "es2020",
     "module": "es2020",
     "moduleResolution": "Bundler",
-    "baseUrl": ".",
-    "esModuleInterop": true,
-    "strict": true,
-    "noUnusedLocals": true,
-    "skipLibCheck": true
+    "noEmit": true,
   },
-  "include": [
-    "**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+  "extends": "tsconfig/base.json"
 }

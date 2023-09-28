@@ -19,6 +19,7 @@
     "tsup": "^7.2.0",
     "@changesets/cli": "^2.26.2",
     "eslint": "^8.50.0",
+    "prettier": "3.0.2",
     "@taskylizard/eslint-config": "workspace:^",
     "@taskylizard/tasker": "workspace:^"
   },
