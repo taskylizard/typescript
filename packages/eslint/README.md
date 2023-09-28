@@ -1,5 +1,7 @@
 ## @taskylizard/eslint-config
 
+![npm (scoped)](https://img.shields.io/npm/v/%40taskylizard/eslint-config?logo=npm&logoColor=%23c0caf5%20&label=%20&labelColor=%2316181d&color=%23f7768e&link=https%3A%2F%2Fnpmjs.com%2Fpackage%2F%40taskylizard%2Feslint-config)
+
 ```sh
 pnpm add -D eslint @taskylizard/eslint-config prettier
 ```
