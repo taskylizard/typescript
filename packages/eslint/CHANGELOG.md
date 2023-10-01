@@ -1,5 +1,13 @@
 # @taskylizard/eslint-config
 
+## 0.0.6
+
+### Patch Changes
+
+- 1f47426: add bun lockfile glob
+- e7f310e: set `node/prefer-global/process` to `always`
+- f48d726: mark peers as optional
+
 ## 0.0.5
 
 ### Patch Changes
