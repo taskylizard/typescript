@@ -31,7 +31,7 @@ export default tasky();
 Enable React/Astro/Jest/JavaScript support:
 
 ```js
-// @s-check
+// @ts-check
 import tasky from "@taskylizard/eslint-config";
 
 export default tasky({
