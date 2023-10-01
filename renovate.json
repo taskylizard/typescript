@@ -7,11 +7,23 @@
   "automerge": true,
   "automergeType": "branch",
   "lockFileMaintenance": {
-    "enabled": true
+    "automerge": true
+  },
+  "minor": {
+    "automerge": true
+  },
+  "patch": {
+    "automerge": true
+  },
+  "pin": {
+    "automerge": true
   },
   "major": {
     "automerge": false
   },
+  "labels": [
+    "renovate"
+  ],
   "packageRules": [
     {
       "groupName": "definitelyTyped",
@@ -38,6 +50,12 @@
       ],
       "groupName": "all non-major dependencies",
       "groupSlug": "all-minor-patch"
+    },
+    {
+      "automerge": true,
+      "extends": [
+        "packages:linters"
+      ]
     }
   ],
   "prBodyNotes": [
