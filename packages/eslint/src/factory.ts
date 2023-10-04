@@ -2,18 +2,23 @@ import type { FlatESLintConfigItem } from "eslint-define-config";
 
 import {
   astro,
+  browser,
+  html,
   ignore,
   imports,
   javascript,
   jest,
   jsdoc,
+  jsonc,
   JSX11y,
   markdown,
   node,
   prettier,
   react,
+  stylistic,
   typescript,
   unicorn,
+  yaml,
 } from "./config";
 import type { ConfigOptions } from "./types";
 
@@ -30,14 +35,17 @@ export function tasky(
   options: ConfigOptions & FlatESLintConfigItem = {},
   ...userConfig: (FlatESLintConfigItem | FlatESLintConfigItem[])[]
 ): FlatESLintConfigItem[] {
-  const configs = [ignore, javascript, imports, unicorn, node, jsdoc, prettier];
+  const configs = [ignore, javascript, imports, unicorn, node, jsdoc, prettier, stylistic];
   if (options.typescript ?? true) configs.push(typescript);
+  if (options.markdown ?? true) configs.push(markdown);
+  if (options.html ?? true) configs.push(html);
+  if (options.jsonc ?? true) configs.push(jsonc);
+  if (options.yaml ?? true) configs.push(yaml);
 
+  if (options.browser) configs.push(browser);
   if (options.react) configs.push(react, JSX11y);
   if (options.astro) configs.push(astro);
   if (options.jest) configs.push(jest);
-
-  if (options.markdown ?? true) configs.push(markdown);
 
   return combine(...configs, ...userConfig);
 }

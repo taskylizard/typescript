@@ -4,7 +4,10 @@
   "description": "tasky's (flat) eslint config.",
   "version": "0.0.6",
   "keywords": [
-    "eslint-config"
+    "eslint-config",
+    "eslint",
+    "eslint-flat-config",
+    "taskylizard"
   ],
   "license": "MIT",
   "homepage": "https://github.com/taskylizard/typescript#readme",
@@ -51,13 +54,14 @@
   },
   "dependencies": {
     "@eslint/js": "^8.49.0",
+    "@html-eslint/eslint-plugin": "^0.19.1",
+    "@html-eslint/parser": "^0.19.1",
     "@ianvs/prettier-plugin-sort-imports": "^4.1.0",
     "@regru/eslint-plugin-prefer-early-return": "^1.0.0",
     "@typescript-eslint/eslint-plugin": "6.7.4",
     "@typescript-eslint/parser": "6.7.4",
     "astro-eslint-parser": "^0.16.0",
     "eslint-config-prettier": "9.0.0",
-    "eslint-plugin-prettier": "5.0.0",
     "eslint-define-config": "^1.23.0",
     "eslint-formatter-pretty": "^5.0.0",
     "eslint-import-resolver-alias": "^1.1.2",
@@ -66,13 +70,18 @@
     "eslint-plugin-i": "^2.28.1",
     "eslint-plugin-jest": "^27.4.0",
     "eslint-plugin-jsdoc": "^46.8.2",
+    "eslint-plugin-jsonc": "^2.9.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-markdown": "^3.0.1",
     "eslint-plugin-n": "^16.1.0",
+    "eslint-plugin-prettier": "5.0.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-unicorn": "^48.0.1",
     "eslint-plugin-unused-imports": "^3.0.0",
-    "globals": "^13.22.0"
+    "eslint-plugin-yml": "^1.9.0",
+    "globals": "^13.22.0",
+    "jsonc-eslint-parser": "^2.3.0",
+    "yaml-eslint-parser": "^1.2.2"
   }
 }

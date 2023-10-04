@@ -24,18 +24,6 @@ export const javascript: FlatESLintConfigItem[] = [
     },
     rules: {
       /**
-       * Disallow await inside of loops.
-       *
-       * 🚫 Not fixable - https://eslint.org/docs/rules/no-await-in-loop
-       */
-      "no-await-in-loop": "error",
-      /**
-       * Disallow the use of console.
-       *
-       * 🚫 Not fixable - https://eslint.org/docs/rules/no-console
-       */
-      "no-console": "error",
-      /**
        * Disallow expressions where the operation doesn't affect the value.
        *
        * 🚫 Not fixable - https://eslint.org/docs/rules/no-console
