@@ -1,4 +1,4 @@
 // @ts-check
-import tasky from "@taskylizard/eslint-config";
+import tasky from "../eslint/dist/index.js";
 
 export default tasky();

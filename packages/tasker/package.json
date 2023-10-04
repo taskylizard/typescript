@@ -18,9 +18,6 @@
     "tasker": "./dist/index.js"
   },
   "exports": "./dist/index.js",
-  "peerDependencies": {
-    "@taskylizard/eslint-config": "workspace:^"
-  },
   "dependencies": {
     "c12": "^1.4.2",
     "citty": "^0.1.4",
