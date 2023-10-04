@@ -1,64 +1,36 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base",
-    ":rebaseStalePrs"
-  ],
+  "extends": ["config:base", ":rebaseStalePrs"],
   "automerge": true,
   "automergeType": "branch",
+  "platformAutomerge": true,
   "lockFileMaintenance": {
-    "automerge": true
-  },
-  "minor": {
-    "automerge": true
-  },
-  "patch": {
-    "automerge": true
-  },
-  "pin": {
     "automerge": true
   },
   "major": {
     "automerge": false
   },
-  "labels": [
-    "renovate"
-  ],
+  "labels": ["renovate"],
   "packageRules": [
     {
       "groupName": "definitelyTyped",
-      "matchPackagePrefixes": [
-        "@types/"
-      ]
+      "matchPackagePrefixes": ["@types/"],
+      "automerge": true
     },
     {
-      "matchPackageNames": [
-        "@types/node"
-      ],
-      "matchUpdateTypes": [
-        "major"
-      ],
-      "enabled": false
-    },
-    {
-      "matchPackagePatterns": [
-        "*"
-      ],
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ],
+      "matchPackagePatterns": ["*"],
+      "matchUpdateTypes": ["minor", "patch"],
       "groupName": "all non-major dependencies",
       "groupSlug": "all-minor-patch"
     },
     {
       "automerge": true,
-      "extends": [
-        "packages:linters"
-      ]
+      "extends": ["packages:linters"]
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
     }
   ],
-  "prBodyNotes": [
-    "{{#if isMajor}}:warning: MAJOR MAJOR MAJOR :warning:{{/if}}"
-  ]
+  "prBodyNotes": ["{{#if isMajor}}:warning: MAJOR MAJOR MAJOR :warning:{{/if}}"]
 }
