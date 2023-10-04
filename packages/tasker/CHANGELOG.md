@@ -1,5 +1,13 @@
 # @taskylizard/tasker
 
+## 1.0.3
+
+### Patch Changes
+
+- 77997fe: fix(tasker): properly escape format script
+- Updated dependencies [04fb818]
+  - @taskylizard/eslint-config@0.0.7
+
 ## 1.0.2
 
 ### Patch Changes
