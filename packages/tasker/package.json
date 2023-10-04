@@ -1,37 +1,25 @@
 {
   "name": "@taskylizard/tasker",
-  "type": "module",
-  "description": "My personal CLI.",
   "version": "1.0.2",
-  "license": "MIT",
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --clean --dts",
+    "format": "prettier -w --cache \"**/*.{ts,tsx,mdx,json,astro}\" ",
+    "lint": "eslint . -f pretty --cache"
+  },
+  "description": "My personal CLI.",
   "homepage": "https://github.com/taskylizard/typescript#readme",
   "bugs": {
     "url": "https://github.com/taskylizard/typescript/issues"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/taskylizard/typescript.git"
-  },
-  "exports": "./dist/index.js",
+  "license": "MIT",
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
   "bin": {
     "tasker": "./dist/index.js"
   },
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "lint": "eslint . -f pretty --cache",
-    "format": "prettier -w --cache \"**/*.{ts,tsx,mdx,json,astro}\" ",
-    "build": "tsup src/index.ts --format esm --clean --dts"
-  },
+  "exports": "./dist/index.js",
   "peerDependencies": {
-    "@taskylizard/eslint-config": "workspace:latest",
-    "tsconfig": "workspace:latest"
-  },
-  "devDependencies": {
-    "typescript": "5.2.2"
+    "@taskylizard/eslint-config": "workspace:latest"
   },
   "dependencies": {
     "c12": "^1.4.2",
@@ -39,5 +27,16 @@
     "consola": "^3.2.3",
     "execa": "^8.0.1",
     "pathe": "^1.1.1"
+  },
+  "devDependencies": {
+    "typescript": "5.2.2"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taskylizard/typescript.git"
   }
 }

@@ -1,6 +1,7 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { defineCommand } from "citty";
 import { join, resolve } from "pathe";
+import consola from "consola";
 import {
   generateEslintConfig,
   generateMITLicense,
@@ -9,7 +10,6 @@ import {
   generateTsconfig,
   getGitignore,
 } from "../template";
-import consola from "consola";
 
 export default defineCommand({
   meta: {

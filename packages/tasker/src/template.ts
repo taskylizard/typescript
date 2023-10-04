@@ -19,7 +19,7 @@ export function generatePackageJson(name: string): string {
   ],
   "scripts": {
     "lint": "eslint . -f pretty --cache",
-    "format": "prettier -w --cache \"**/*.{ts,tsx,mdx,json,astro}\" ",
+    "format": "prettier -w --cache '**/*.{ts,tsx,mdx,json,astro}' ",
     "build": "tsup src/index.ts --format esm --clean --dts"
   },
   "devDependencies": {
