@@ -1,5 +1,11 @@
 # @taskylizard/eslint-config
 
+## 0.0.7
+
+### Patch Changes
+
+- 04fb818: feat(eslint): browser/yaml/jsonc/stylistic preset
+
 ## 0.0.6
 
 ### Patch Changes
