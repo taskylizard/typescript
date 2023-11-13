@@ -11,6 +11,8 @@ export { default as parserJSON } from "jsonc-eslint-parser";
 export { default as pluginJSON } from "eslint-plugin-jsonc";
 export { default as parserYAML } from "yaml-eslint-parser";
 export { default as pluginYAML } from "eslint-plugin-yml";
+export { default as parserVue } from "vue-eslint-parser";
+export { default as pluginVue } from "eslint-plugin-vue";
 export { default as pluginUnicorn } from "eslint-plugin-unicorn";
 export { default as pluginUnusedImports } from "eslint-plugin-unused-imports";
 export { default as configPrettier } from "eslint-config-prettier";
