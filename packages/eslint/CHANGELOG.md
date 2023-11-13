@@ -1,5 +1,11 @@
 # @taskylizard/eslint-config
 
+## 1.0.0
+
+### Major Changes
+
+- 9094119: feat(eslint): add vue config
+
 ## 0.0.7
 
 ### Patch Changes
