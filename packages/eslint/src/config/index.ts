@@ -20,3 +20,4 @@ export * from "./stylistic";
 export * from "./typescript";
 export * from "./unicorn";
 export * from "./yaml";
+export * from "./vue";

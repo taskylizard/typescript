@@ -18,6 +18,7 @@ import {
   stylistic,
   typescript,
   unicorn,
+  vue,
   yaml,
 } from "./config";
 import type { ConfigOptions } from "./types";
@@ -43,6 +44,7 @@ export function tasky(
   if (options.yaml ?? true) configs.push(yaml);
 
   if (options.browser) configs.push(browser);
+  if (options.vue) configs.push(vue);
   if (options.react) configs.push(react, JSX11y);
   if (options.astro) configs.push(astro);
   if (options.jest) configs.push(jest);

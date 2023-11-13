@@ -15,6 +15,8 @@ export interface ConfigOptions {
   jest?: boolean;
   /** React support. */
   react?: boolean;
+  /** Vue support. */
+  vue?: boolean;
   /** Astro support. */
   astro?: boolean;
 }
