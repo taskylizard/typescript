@@ -1,5 +1,11 @@
 # @taskylizard/eslint-config
 
+## 1.0.1
+
+### Patch Changes
+
+- cb7731a: Enable vue support
+
 ## 1.0.0
 
 ### Major Changes
