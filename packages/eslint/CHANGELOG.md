@@ -1,5 +1,11 @@
 # @taskylizard/eslint-config
 
+## 1.0.2
+
+### Patch Changes
+
+- 5d812fe: add vue plugin
+
 ## 1.0.1
 
 ### Patch Changes
