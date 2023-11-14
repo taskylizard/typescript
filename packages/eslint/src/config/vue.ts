@@ -17,6 +17,9 @@ export const vue: FlatESLintConfigItem[] = [
         sourceType: "module",
       },
     },
+    plugins: {
+      vue: pluginVue as any,
+    },
     processor: pluginVue.processors[".vue"],
     rules: {
       ...(pluginVue.configs.base.rules as any),
