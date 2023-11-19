@@ -1,5 +1,11 @@
 # @taskylizard/eslint-config
 
+## 1.0.4
+
+### Patch Changes
+
+- e6c6502: disable `vue/singleline-html-element-content-newline`
+
 ## 1.0.3
 
 ### Patch Changes
