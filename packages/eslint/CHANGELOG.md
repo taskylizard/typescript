@@ -1,5 +1,11 @@
 # @taskylizard/eslint-config
 
+## 1.0.5
+
+### Patch Changes
+
+- 12a3917: disable `vue/html-closing-bracket-newline`
+
 ## 1.0.4
 
 ### Patch Changes
