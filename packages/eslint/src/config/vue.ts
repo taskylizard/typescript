@@ -53,6 +53,7 @@ export const vue: FlatESLintConfigItem[] = [
       "vue/multi-word-component-names": "off",
       "vue/no-dupe-keys": "off",
       "vue/singleline-html-element-content-newline": "off",
+      "vue/html-closing-bracket-newline": "off",
       "vue/no-empty-pattern": "error",
       "vue/no-extra-parens": ["error", "functions"],
       "vue/no-irregular-whitespace": "error",
