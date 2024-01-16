@@ -1,5 +1,11 @@
 # @taskylizard/tasker
 
+## 1.0.4
+
+### Patch Changes
+
+- 668b9ed: feat: bundler
+
 ## 1.0.3
 
 ### Patch Changes
