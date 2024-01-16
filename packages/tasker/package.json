@@ -22,7 +22,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup src/index.ts src/cli.ts --format esm --clean --dts --publicDir templates",
+    "build": "tasker build",
     "format": "prettier -w --cache \"**/*.{ts,tsx,mdx,json,astro}\" ",
     "lint": "eslint . -f pretty --cache"
   },
