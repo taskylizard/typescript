@@ -2,8 +2,8 @@ import { mkdir, writeFile, cp } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import { defineCommand } from 'citty'
 import { dirname, join, resolve } from 'pathe'
-import { logger } from '../core/utils'
 import { generateMITLicense, generateReadme } from 'src/core/template/utils'
+import { logger } from '../core/utils'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)

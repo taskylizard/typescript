@@ -9,16 +9,9 @@
       "require": "./dist/index.cjs"
     }
   },
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "scripts": {
-    "build": "tsup src/index.ts --format esm --clean --dts",
-    "format": "prettier -w --cache '**/*.{ts,tsx,mdx,json,astro}' ",
-    "lint": "eslint . -f pretty --cache"
-  },
   "dependencies": {},
   "devDependencies": {
     "@taskylizard/eslint-config": "latest",

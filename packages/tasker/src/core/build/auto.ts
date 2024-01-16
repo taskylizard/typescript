@@ -3,7 +3,7 @@ import { normalize, join, resolve } from 'pathe'
 import { colors } from 'consola/utils'
 import type { PackageJson } from 'pkg-types'
 import { extractExportFilenames, listRecursively, logger, warn } from './utils'
-import type { BuildEntry, MkdistBuildEntry, BuildPreset } from './types'
+import { type BuildEntry, type MkdistBuildEntry, definePreset } from './types'
 
 type InferEntriesResult = {
   entries: BuildEntry[]
@@ -12,48 +12,50 @@ type InferEntriesResult = {
   warnings: string[]
 }
 
-export const autoPreset: BuildPreset = {
-  hooks: {
-    'build:prepare'(ctx) {
-      // Disable auto if entries already provided of pkg not available
-      if (!ctx.pkg || ctx.options.entries.length > 0) {
-        return
-      }
-      const sourceFiles = listRecursively(join(ctx.options.rootDir, 'src'))
-      const res = inferEntries(ctx.pkg, sourceFiles, ctx.options.rootDir)
-      for (const message of res.warnings) {
-        warn(ctx, message)
-      }
-      ctx.options.entries.push(...res.entries)
-      if (res.cjs) {
-        ctx.options.rollup.emitCJS = true
-      }
-      if (res.dts) {
-        ctx.options.declaration = res.dts
-      }
-      logger.info(
-        'Automatically detected entries:',
-        colors.cyan(
-          ctx.options.entries
-            .map((e) =>
-              colors.bold(
-                e.input
-                  .replace(`${ctx.options.rootDir}/`, '')
-                  .replace(/\/$/, '/*')
+export const autoPreset = definePreset(() => {
+  return {
+    hooks: {
+      'build:prepare'(ctx) {
+        // Disable auto if entries already provided of pkg not available
+        if (!ctx.pkg || ctx.options.entries.length > 0) {
+          return
+        }
+        const sourceFiles = listRecursively(join(ctx.options.rootDir, 'src'))
+        const res = inferEntries(ctx.pkg, sourceFiles, ctx.options.rootDir)
+        for (const message of res.warnings) {
+          warn(ctx, message)
+        }
+        ctx.options.entries.push(...res.entries)
+        if (res.cjs) {
+          ctx.options.rollup.emitCJS = true
+        }
+        if (res.dts) {
+          ctx.options.declaration = res.dts
+        }
+        logger.info(
+          'Automatically detected entries:',
+          colors.cyan(
+            ctx.options.entries
+              .map((e) =>
+                colors.bold(
+                  e.input
+                    .replace(`${ctx.options.rootDir}/`, '')
+                    .replace(/\/$/, '/*')
+                )
               )
-            )
-            .join(', ')
-        ),
-        colors.gray(
-          ['esm', res.cjs && 'cjs', res.dts && 'dts']
-            .filter(Boolean)
-            .map((tag) => `[${tag}]`)
-            .join(' ')
+              .join(', ')
+          ),
+          colors.gray(
+            ['esm', res.cjs && 'cjs', res.dts && 'dts']
+              .filter(Boolean)
+              .map((tag) => `[${tag}]`)
+              .join(' ')
+          )
         )
-      )
+      }
     }
   }
-}
+})
 
 /**
  * @param pkg The contents of a package.json file to serve as the source for inferred entries.

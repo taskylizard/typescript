@@ -15,7 +15,7 @@ const main = defineCommand({
   subCommands: {
     // init: import("./commands/init").then(_def),
     barrel: import('./commands/barrel').then(_def),
-    build: import('./core/build/cli').then(_def)
+    build: import('./commands/build').then(_def)
   }
 })
 

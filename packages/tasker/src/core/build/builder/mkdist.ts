@@ -1,5 +1,6 @@
 import { relative } from 'pathe'
-import { mkdist, MkdistOptions } from 'mkdist'
+import type { MkdistOptions } from 'mkdist'
+import { mkdist } from 'mkdist'
 import { symlink, rmdir } from '../utils'
 import type { MkdistBuildEntry, BuildContext } from '../types'
 

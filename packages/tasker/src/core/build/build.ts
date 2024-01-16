@@ -36,7 +36,7 @@ export async function build(
   const buildConfigs = (
     Array.isArray(_buildConfig) ? _buildConfig : [_buildConfig]
   ).filter(Boolean)
-  const pkg: PackageJson & Record<'unbuild' | 'build', BuildConfig> =
+  const pkg: PackageJson & Record<'tasker' | 'build', BuildConfig> =
     tryRequire('./package.json', rootDir) || {}
 
   // Invoke build for every build config defined in build.config.ts
@@ -51,13 +51,13 @@ async function _build(
   stub: boolean,
   inputConfig: BuildConfig = {},
   buildConfig: BuildConfig,
-  pkg: PackageJson & Record<'unbuild' | 'build', BuildConfig>,
+  pkg: PackageJson & Record<'tasker' | 'build', BuildConfig>,
   cleanedDirs: string[]
 ) {
   // Resolve preset
   const preset = resolvePreset(
     buildConfig.preset ||
-      pkg.unbuild?.preset ||
+      pkg.tasker?.preset ||
       pkg.build?.preset ||
       inputConfig.preset ||
       'auto',
@@ -65,9 +65,10 @@ async function _build(
   )
 
   // Merge options
+  // @ts-expect-error
   const options = defu(
     buildConfig,
-    pkg.unbuild || pkg.build,
+    pkg.tasker || pkg.build,
     inputConfig,
     preset,
     <BuildOptions>{
@@ -305,7 +306,7 @@ async function _build(
       totalBytes && `total size: ${colors.cyan(prettyBytes(totalBytes))}`,
       entry.bytes && `chunk size: ${colors.cyan(prettyBytes(entry.bytes))}`,
       entry.exports?.length &&
-        `exports: ${colors.gray(entry.exports.join(', '))}`
+        `exports  : ${colors.gray(entry.exports.join(', '))}`
     ]
       .filter(Boolean)
       .join(', ')})`

@@ -2,7 +2,7 @@ import { createFilter } from '@rollup/pluginutils'
 import type { FilterPattern } from '@rollup/pluginutils'
 import type { Plugin } from 'rollup'
 
-export interface RawLoaderOptions {
+interface RawLoaderOptions {
   include?: FilterPattern
   exclude?: FilterPattern
 }
@@ -16,7 +16,7 @@ export function rawPlugin(opts: RawLoaderOptions = {}): Plugin {
   opts = { ...opts, ...defaults }
   const filter = createFilter(opts.include, opts.exclude)
   return {
-    name: 'unbuild-raw',
+    name: 'tasker:build:raw',
     transform(code, id) {
       if (filter(id)) {
         return {

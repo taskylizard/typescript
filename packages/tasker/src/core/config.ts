@@ -1,8 +1,8 @@
 import { loadConfig } from 'c12'
-import type { BuildConfig, BuildPreset } from './build/types'
+import type { BuildConfig } from './build/types'
 
 interface Config {
-  build?: { config: BuildConfig | BuildConfig[]; presets?: BuildPreset[] }
+  build?: BuildConfig | BuildConfig[]
   tasks?: {}
 }
 export async function loadTaskerConfig(): Promise<any> {
@@ -11,21 +11,14 @@ export async function loadTaskerConfig(): Promise<any> {
   })
 
   let builds: BuildConfig[]
-  let presets: BuildPreset[]
 
-  if (config.build.config) {
+  if (config.build) {
     builds = (
-      Array.isArray(config.build.config)
-        ? config.build.config
-        : [config.build.config]
+      Array.isArray(config.build) ? config.build : [config.build]
     ).filter(Boolean)
   }
 
-  if (config.build.presets) {
-    presets = config.build.presets
-  }
-
-  return { builds, presets }
+  return { builds }
 }
 
 export function defineConfig(config: Config): Config {

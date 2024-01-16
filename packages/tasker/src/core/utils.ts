@@ -1,5 +1,5 @@
+import { isSymbol } from 'node:util'
 import { createConsola, consola } from 'consola'
-import { isSymbol } from 'util'
 
 export const logger = createConsola({
   defaults: { tag: 'tasker' },

@@ -192,3 +192,7 @@ export interface BuildHooks {
   ) => void | Promise<void>
   'untyped:done': (ctx: BuildContext) => void | Promise<void>
 }
+
+export function definePreset(preset: BuildPreset): BuildPreset {
+  return preset
+}

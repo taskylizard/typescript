@@ -4,7 +4,7 @@ import MagicString from 'magic-string'
 
 export function cjsPlugin(_opts?: any): Plugin {
   return {
-    name: 'unbuild-cjs',
+    name: 'tasker:build:cjs',
     renderChunk(code, _chunk, opts) {
       if (opts.format === 'es') {
         return CJSToESM(code)

@@ -8,8 +8,9 @@ export function JSONPlugin(options: RollupJsonOptions): Plugin {
   const plugin = rollupJSONPlugin(options)
   return <Plugin>{
     ...plugin,
-    name: 'unbuild-json',
+    name: 'tasker:build:json',
     transform(code, id) {
+      // @ts-expect-error
       const res = plugin.transform!.call(this, code, id)
       if (
         res &&

@@ -8,7 +8,7 @@ const SHEBANG_RE = /^#![^\n]*/
 
 export function shebangPlugin(): Plugin {
   return {
-    name: 'unbuild-shebang',
+    name: 'tasker:build:shebang',
     async writeBundle(options, bundle) {
       for (const [fileName, output] of Object.entries(bundle)) {
         if (output.type !== 'chunk') {
@@ -25,7 +25,7 @@ export function shebangPlugin(): Plugin {
 
 export function removeShebangPlugin(): Plugin {
   return {
-    name: 'unbuild-remove-shebang',
+    name: 'tasker:build:remove-shebang',
     renderChunk(code) {
       return code.replace(SHEBANG_RE, '')
     }
@@ -37,6 +37,6 @@ export async function makeExecutable(filePath: string) {
 }
 
 export function getShebang(code: string, append = '\n') {
-  const m = code.match(SHEBANG_RE)
+  const m = SHEBANG_RE.exec(code)
   return m ? m + append : ''
 }

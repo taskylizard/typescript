@@ -1,11 +1,11 @@
 import { defineCommand } from 'citty'
 import { resolve } from 'pathe'
-import { build } from './build'
-import { logger } from './utils'
+import { build, logger } from '../core/build'
 
 export default defineCommand({
   meta: {
-    name: 'build'
+    name: 'build',
+    description: 'Build a project.'
   },
   args: {
     dir: {

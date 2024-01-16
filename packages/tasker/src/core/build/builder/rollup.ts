@@ -77,7 +77,7 @@ export async function rollupBuild(ctx: BuildContext) {
       // CJS Stub
       if (ctx.options.rollup.emitCJS) {
         await writeFile(
-          output + '.cjs',
+          `${output}.cjs`,
           shebang +
             [
               `const jiti = require(${JSON.stringify(jitiPath)})`,
@@ -100,14 +100,14 @@ export async function rollupBuild(ctx: BuildContext) {
           extensions: DEFAULT_EXTENSIONS
         }
       ).catch((error) => {
-        warn(ctx, `Cannot analyze ${resolvedEntry} for exports:` + error)
+        warn(ctx, `Cannot analyze ${resolvedEntry} for exports:${error}`)
         return []
       })
       const hasDefaultExport =
         namedExports.includes('default') || namedExports.length === 0
 
       await writeFile(
-        output + '.mjs',
+        `${output}.mjs`,
         shebang +
           [
             `import jiti from ${JSON.stringify(pathToFileURL(jitiPath).href)};`,
@@ -127,7 +127,7 @@ export async function rollupBuild(ctx: BuildContext) {
 
       // DTS Stub
       await writeFile(
-        output + '.d.ts',
+        `${output}.d.ts`,
         [
           `export * from ${JSON.stringify(resolvedEntryWithoutExt)};`,
           hasDefaultExport
@@ -139,8 +139,8 @@ export async function rollupBuild(ctx: BuildContext) {
       )
 
       if (shebang) {
-        await makeExecutable(output + '.cjs')
-        await makeExecutable(output + '.mjs')
+        await makeExecutable(`${output}.cjs`)
+        await makeExecutable(`${output}.mjs`)
       }
     }
     await ctx.hooks.callHook('rollup:done', ctx)
