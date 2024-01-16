@@ -2,9 +2,12 @@
   "include": ["**/*.ts"],
   "exclude": ["dist", "node_modules"],
   "compilerOptions": {
-    "target": "es2020",
-    "module": "es2020",
+    "target": "ESNext",
+    "module": "ESNext",
     "moduleResolution": "Bundler",
+    "paths": {
+      "@/*": ["./src"]
+    },
     "noEmit": true
   }
 }

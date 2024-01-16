@@ -1,7 +1,7 @@
 import { defineCommand } from "citty";
 import { resolve } from "pathe";
 import { consola } from "consola";
-import { barrel } from "../barrel";
+import { barrel } from "../core/barrel";
 
 export default defineCommand({
   meta: {

@@ -21,7 +21,11 @@ export async function barrel(directory: string): Promise<void> {
 
         if (stats.isDirectory()) {
           await scan(filePath); // Continue scanning recursively
-        } else if (stats.isFile() && re.test(file)) {
+        } else if (
+          stats.isFile() &&
+          re.test(file) &&
+          !file.startsWith("index")
+        ) {
           // Append export statement for each .ts/.tsx file found
           const rel = relative(directory, filePath);
           const exports = `export * from './${rel.replace(re, "")}';`;

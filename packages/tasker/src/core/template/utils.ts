@@ -1,42 +1,5 @@
 import { execa } from "execa";
 
-export function generatePackageJson(name: string): string {
-  return `{
-  "name": "${name}",
-  "type": "module",
-  "version": "0.0.0",
-  "license": "MIT",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    }
-  },
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "lint": "eslint . -f pretty --cache",
-    "format": "prettier -w --cache '**/*.{ts,tsx,mdx,json,astro}' ",
-    "build": "tsup src/index.ts --format esm --clean --dts"
-  },
-  "devDependencies": {
-    "@types/node": "^20.6.3",
-    "@taskylizard/eslint-config": "latest"
-  },
-  "dependencies": {}
-}`;
-}
-
-export function generateEslintConfig(): string {
-  return `// @ts-check
-import tasky from "@taskylizard/eslint-config";
-
-export default tasky();`;
-}
-
 export function generateMITLicense(): string {
   return `MIT License
 
@@ -59,28 +22,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.`;
-}
-
-export function generateTsconfig(): string {
-  return `{
-  "compilerOptions": {
-    "target": "es2020",
-    "module": "es2020",
-    "moduleResolution": "Bundler",
-    "baseUrl": ".",
-    "esModuleInterop": true,
-    "strict": true,
-    "noUnusedLocals": true,
-    "skipLibCheck": true
-  },
-  "include": [
-    "**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
-}`;
 }
 
 async function git(key: string): Promise<string> {
@@ -115,28 +56,4 @@ TODO: Write development instructions here
 - [${await git("user.name")}](https://github.com/${await git(
     "user.name",
   )}) - creator and maintainer`;
-}
-
-const gitignore = [
-  "**/node_modules",
-  "**/dist",
-  "**/package-lock.json",
-  "**/yarn.lock",
-  "**/output",
-  "**/coverage",
-  "**/temp",
-  "**/.vitepress/cache",
-  "**/.nuxt",
-  "**/.vercel",
-  "**/.idea",
-  "**/.output",
-  "**/.vite-inspect",
-  "**/*.min.*",
-  "**/__snapshots__",
-  "**/auto-import?(s).d.ts",
-  "**/components.d.ts",
-];
-
-export function getGitignore(): string {
-  return gitignore.join("\n");
 }
