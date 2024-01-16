@@ -1,6 +1,6 @@
 {
   "name": "@taskylizard/tasker",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "My personal CLI.",
   "homepage": "https://github.com/taskylizard/typescript#readme",
   "bugs": {
@@ -22,7 +22,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tasker build",
+    "build": "tsx src/cli.ts build",
     "format": "prettier -w --cache \"**/*.{ts,tsx,mdx,json,astro}\" ",
     "lint": "eslint . -f pretty --cache"
   },
