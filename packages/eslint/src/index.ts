@@ -1,8 +1,8 @@
-import { tasky } from "./factory";
+import { tasky } from './factory'
 
-export * from "./types";
-export * from "./factory";
-export * from "./config";
-export * from "./plugins";
+export * from './types'
+export * from './factory'
+export * from './config'
+export * from './plugins'
 
-export default tasky;
+export default tasky

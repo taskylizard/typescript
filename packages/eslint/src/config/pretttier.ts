@@ -1,15 +1,15 @@
-import { type FlatESLintConfigItem } from "eslint-define-config";
+import { type FlatESLintConfigItem } from 'eslint-define-config'
 
-import { configPrettier, pluginPrettier } from "../plugins";
+import { configPrettier, pluginPrettier } from '../plugins'
 
 export const prettier: FlatESLintConfigItem[] = [
   {
     plugins: {
-      prettier: pluginPrettier,
+      prettier: pluginPrettier
     },
     rules: {
       ...configPrettier.rules,
-      "prettier/prettier": "warn",
-    },
-  },
-];
+      'prettier/prettier': 'warn'
+    }
+  }
+]

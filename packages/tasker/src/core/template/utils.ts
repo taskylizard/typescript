@@ -1,4 +1,4 @@
-import { execa } from "execa";
+import { execa } from 'execa'
 
 export function generateMITLicense(): string {
   return `MIT License
@@ -21,12 +21,12 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.`;
+SOFTWARE.`
 }
 
 async function git(key: string): Promise<string> {
-  const { stdout } = await execa("git", ["config", "--get", key]);
-  return stdout;
+  const { stdout } = await execa('git', ['config', '--get', key])
+  return stdout
 }
 
 // Inspired from crystal init app
@@ -45,7 +45,7 @@ TODO: Write development instructions here
 
 ## Contributing
 
-1. Fork it (<https://github.com/${await git("user.name")}/${name}/fork>)
+1. Fork it (<https://github.com/${await git('user.name')}/${name}/fork>)
 2. Create your feature branch (\`git checkout -b my-new-feature\`)
 3. Commit your changes (\`git commit -am 'Add some feature'\`)
 4. Push to the branch (\`git push origin my-new-feature\`)
@@ -53,7 +53,7 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [${await git("user.name")}](https://github.com/${await git(
-    "user.name",
-  )}) - creator and maintainer`;
+- [${await git('user.name')}](https://github.com/${await git(
+    'user.name'
+  )}) - creator and maintainer`
 }

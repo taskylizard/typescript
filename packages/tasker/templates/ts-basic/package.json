@@ -1,27 +1,27 @@
 {
   "name": "@name",
-  "type": "module",
   "version": "0.0.0",
   "license": "MIT",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "type": "module",
   "exports": {
     ".": {
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     }
   },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "lint": "eslint . -f pretty --cache",
+    "build": "tsup src/index.ts --format esm --clean --dts",
     "format": "prettier -w --cache '**/*.{ts,tsx,mdx,json,astro}' ",
-    "build": "tsup src/index.ts --format esm --clean --dts"
+    "lint": "eslint . -f pretty --cache"
   },
+  "dependencies": {},
   "devDependencies": {
-    "@types/node": "^20.6.3",
-    "@taskylizard/eslint-config": "latest"
-  },
-  "dependencies": {}
+    "@taskylizard/eslint-config": "latest",
+    "@types/node": "^20.6.3"
+  }
 }

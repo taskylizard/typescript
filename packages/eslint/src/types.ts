@@ -1,22 +1,22 @@
 export interface ConfigOptions {
   /** TypeScript support. */
-  typescript?: boolean;
+  typescript?: boolean
   /** Browser support. Enables/disables a few browser specific rules.*/
-  browser?: boolean;
+  browser?: boolean
   /** Markdown support. */
-  markdown?: boolean;
+  markdown?: boolean
   /** JSONc support. */
-  jsonc?: boolean;
+  jsonc?: boolean
   /** YAML support. */
-  yaml?: boolean;
+  yaml?: boolean
   /** HTML support.*/
-  html?: boolean;
+  html?: boolean
   /** Jest support. */
-  jest?: boolean;
+  jest?: boolean
   /** React support. */
-  react?: boolean;
+  react?: boolean
   /** Vue support. */
-  vue?: boolean;
+  vue?: boolean
   /** Astro support. */
-  astro?: boolean;
+  astro?: boolean
 }

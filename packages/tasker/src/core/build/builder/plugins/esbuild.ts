@@ -1,36 +1,36 @@
 // Based on https://github.com/egoist/rollup-plugin-esbuild and nitropack fork (MIT)
 
-import { extname, relative } from "pathe";
-import type { Plugin, PluginContext } from "rollup";
-import { Loader, TransformResult, CommonOptions, transform } from "esbuild";
-import { createFilter } from "@rollup/pluginutils";
-import type { FilterPattern } from "@rollup/pluginutils";
+import { extname, relative } from 'pathe'
+import type { Plugin, PluginContext } from 'rollup'
+import { Loader, TransformResult, CommonOptions, transform } from 'esbuild'
+import { createFilter } from '@rollup/pluginutils'
+import type { FilterPattern } from '@rollup/pluginutils'
 
 const DefaultLoaders: { [ext: string]: Loader } = {
-  ".js": "js",
-  ".mjs": "js",
-  ".cjs": "js",
+  '.js': 'js',
+  '.mjs': 'js',
+  '.cjs': 'js',
 
-  ".ts": "ts",
-  ".mts": "ts",
-  ".cts": "ts",
+  '.ts': 'ts',
+  '.mts': 'ts',
+  '.cts': 'ts',
 
-  ".tsx": "tsx",
-  ".jsx": "jsx",
-};
+  '.tsx': 'tsx',
+  '.jsx': 'jsx'
+}
 
 export type EsbuildOptions = CommonOptions & {
-  include?: FilterPattern;
-  exclude?: FilterPattern;
+  include?: FilterPattern
+  exclude?: FilterPattern
 
   /**
    * Map extension to esbuild loader
    * Note that each entry (the extension) needs to start with a dot
    */
   loaders?: {
-    [ext: string]: Loader | false;
-  };
-};
+    [ext: string]: Loader | false
+  }
+}
 
 export function esbuild(options: EsbuildOptions): Plugin {
   // Extract esBuild options from additional options and apply defaults
@@ -39,96 +39,96 @@ export function esbuild(options: EsbuildOptions): Plugin {
     exclude = /node_modules/,
     loaders: loaderOptions,
     ...esbuildOptions
-  } = options;
+  } = options
 
   // Rsolve loaders
-  const loaders = { ...DefaultLoaders };
+  const loaders = { ...DefaultLoaders }
   if (loaderOptions) {
     for (const [key, value] of Object.entries(loaderOptions)) {
-      if (typeof value === "string") {
-        loaders[key] = value;
+      if (typeof value === 'string') {
+        loaders[key] = value
       } else if (value === false) {
-        delete loaders[key];
+        delete loaders[key]
       }
     }
   }
-  const getLoader = (id = "") => {
-    return loaders[extname(id)];
-  };
+  const getLoader = (id = '') => {
+    return loaders[extname(id)]
+  }
 
-  const filter = createFilter(include, exclude);
+  const filter = createFilter(include, exclude)
 
   return {
-    name: "esbuild",
+    name: 'esbuild',
 
     async transform(code, id) {
       if (!filter(id)) {
-        return null;
+        return null
       }
 
-      const loader = getLoader(id);
+      const loader = getLoader(id)
       if (!loader) {
-        return null;
+        return null
       }
 
       const result = await transform(code, {
         ...esbuildOptions,
         loader,
-        sourcefile: id,
-      });
+        sourcefile: id
+      })
 
-      printWarnings(id, result, this);
+      printWarnings(id, result, this)
 
       return (
         result.code && {
           code: result.code,
-          map: result.map || null,
+          map: result.map || null
         }
-      );
+      )
     },
 
     async renderChunk(code, { fileName }) {
       if (!options.minify) {
-        return null;
+        return null
       }
       if (/\.d\.(c|m)?tsx?$/.test(fileName)) {
-        return null;
+        return null
       }
-      const loader = getLoader(fileName);
+      const loader = getLoader(fileName)
       if (!loader) {
-        return null;
+        return null
       }
       const result = await transform(code, {
         ...esbuildOptions,
         loader,
         sourcefile: fileName,
-        minify: true,
-      });
+        minify: true
+      })
       if (result.code) {
         return {
           code: result.code,
-          map: result.map || null,
-        };
+          map: result.map || null
+        }
       }
-    },
-  };
+    }
+  }
 }
 
 function printWarnings(
   id: string,
   result: TransformResult,
-  plugin: PluginContext,
+  plugin: PluginContext
 ) {
   if (result.warnings) {
     for (const warning of result.warnings) {
-      let message = "[esbuild]";
+      let message = '[esbuild]'
       if (warning.location) {
         message += ` (${relative(process.cwd(), id)}:${warning.location.line}:${
           warning.location.column
-        })`;
+        })`
       }
-      message += ` ${warning.text}`;
-      plugin.warn(message);
+      message += ` ${warning.text}`
+      plugin.warn(message)
     }
   }
 }

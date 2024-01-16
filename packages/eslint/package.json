@@ -1,15 +1,13 @@
 {
   "name": "@taskylizard/eslint-config",
-  "type": "module",
-  "description": "tasky's (flat) eslint config.",
   "version": "1.0.5",
+  "description": "tasky's (flat) eslint config.",
   "keywords": [
     "eslint-config",
     "eslint",
     "eslint-flat-config",
     "taskylizard"
   ],
-  "license": "MIT",
   "homepage": "https://github.com/taskylizard/typescript#readme",
   "bugs": {
     "url": "https://github.com/taskylizard/typescript/issues"
@@ -18,39 +16,25 @@
     "type": "git",
     "url": "git+https://github.com/taskylizard/typescript.git"
   },
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "type": "module",
   "exports": {
     ".": {
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     }
   },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist",
     ".prettierrc.json",
     ".prettierignore"
   ],
   "scripts": {
-    "lint": "eslint . -f pretty --cache",
+    "build": "tsup src/index.ts --format esm,cjs --clean --dts",
     "format": "prettier -w --cache \"**/*.{ts,tsx,mdx,json,astro}\" ",
-    "build": "tsup src/index.ts --format esm,cjs --clean --dts"
-  },
-  "peerDependencies": {
-    "eslint": ">=8.0.0",
-    "prettier": ">=3.0.0 <4",
-    "typescript": ">=4.8.0 <6"
-  },
-  "peerDependenciesMeta": {
-    "eslint": {
-      "optional": true
-    },
-    "prettier": {
-      "optional": true
-    },
-    "typescript": {
-      "optional": true
-    }
+    "lint": "eslint . -f pretty --cache"
   },
   "dependencies": {
     "@eslint/js": "^8.49.0",
@@ -85,5 +69,21 @@
     "jsonc-eslint-parser": "^2.3.0",
     "vue-eslint-parser": "^9.3.2",
     "yaml-eslint-parser": "^1.2.2"
+  },
+  "peerDependencies": {
+    "eslint": ">=8.0.0",
+    "prettier": ">=3.0.0 <4",
+    "typescript": ">=4.8.0 <6"
+  },
+  "peerDependenciesMeta": {
+    "eslint": {
+      "optional": true
+    },
+    "prettier": {
+      "optional": true
+    },
+    "typescript": {
+      "optional": true
+    }
   }
 }

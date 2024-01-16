@@ -13,15 +13,14 @@
   "author": "taskylizard",
   "license": "MIT",
   "packageManager": "pnpm@8.8.0",
-  "dependencies": {},
   "devDependencies": {
-    "@types/node": "^20.6.3",
-    "tsup": "^7.2.0",
     "@changesets/cli": "^2.26.2",
-    "eslint": "^8.50.0",
-    "prettier": "3.0.3",
     "@taskylizard/eslint-config": "workspace:^",
-    "@taskylizard/tasker": "workspace:^"
+    "@taskylizard/tasker": "workspace:^",
+    "@types/node": "^20.6.3",
+    "eslint": "^8.50.0",
+    "prettier": "3.2.2",
+    "prettier-plugin-packagejson": "^2.4.9"
   },
   "pnpm": {
     "overrides": {
@@ -40,5 +39,8 @@
       "object.values": "npm:@nolyfill/object.values@latest",
       "string.prototype.matchall": "npm:@nolyfill/string.prototype.matchall@latest"
     }
+  },
+  "dependencies": {
+    "typescript": "^5.3.3"
   }
 }

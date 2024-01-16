@@ -1,19 +1,19 @@
-import type { FlatESLintConfigItem } from "eslint-define-config";
+import type { FlatESLintConfigItem } from 'eslint-define-config'
 
-import { GLOB_ASTRO } from "../glob";
-import { parserAstro, pluginAstro } from "../plugins";
+import { GLOB_ASTRO } from '../glob'
+import { parserAstro, pluginAstro } from '../plugins'
 
 export const astro: FlatESLintConfigItem[] = [
   {
     files: [GLOB_ASTRO],
     plugins: {
-      astro: pluginAstro as any,
+      astro: pluginAstro as any
     },
     languageOptions: {
-      parser: parserAstro,
+      parser: parserAstro
     },
     rules: {
-      ...(pluginAstro.configs.recommended.rules as any),
-    },
-  },
-];
+      ...(pluginAstro.configs.recommended.rules as any)
+    }
+  }
+]

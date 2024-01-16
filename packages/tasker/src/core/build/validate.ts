@@ -1,33 +1,33 @@
-import { existsSync } from "node:fs";
-import { resolve } from "pathe";
-import { colors } from "consola/utils";
-import type { PackageJson } from "pkg-types";
-import { arrayIncludes, extractExportFilenames, getpkg, warn } from "./utils";
-import type { BuildContext } from "./types";
+import { existsSync } from 'node:fs'
+import { resolve } from 'pathe'
+import { colors } from 'consola/utils'
+import type { PackageJson } from 'pkg-types'
+import { arrayIncludes, extractExportFilenames, getpkg, warn } from './utils'
+import type { BuildContext } from './types'
 
 export function validateDependencies(ctx: BuildContext) {
-  const usedDependencies = new Set<string>();
+  const usedDependencies = new Set<string>()
   const unusedDependencies = new Set<string>(
-    Object.keys(ctx.pkg.dependencies || {}),
-  );
-  const implicitDependencies = new Set<string>();
+    Object.keys(ctx.pkg.dependencies || {})
+  )
+  const implicitDependencies = new Set<string>()
   for (const id of ctx.usedImports) {
-    unusedDependencies.delete(id);
-    usedDependencies.add(id);
+    unusedDependencies.delete(id)
+    usedDependencies.add(id)
   }
   if (Array.isArray(ctx.options.dependencies)) {
     for (const id of ctx.options.dependencies) {
-      unusedDependencies.delete(id);
+      unusedDependencies.delete(id)
     }
   }
   for (const id of usedDependencies) {
     if (
       !arrayIncludes(ctx.options.externals, id) &&
-      !id.startsWith("chunks/") &&
+      !id.startsWith('chunks/') &&
       !ctx.options.dependencies.includes(getpkg(id)) &&
       !ctx.options.peerDependencies.includes(getpkg(id))
     ) {
-      implicitDependencies.add(id);
+      implicitDependencies.add(id)
     }
   }
   if (unusedDependencies.size > 0) {
@@ -35,46 +35,46 @@ export function validateDependencies(ctx: BuildContext) {
       ctx,
       `Potential unused dependencies found: ${[...unusedDependencies]
         .map((id) => colors.cyan(id))
-        .join(", ")}`,
-    );
+        .join(', ')}`
+    )
   }
   if (implicitDependencies.size > 0 && !ctx.options.rollup.inlineDependencies) {
     warn(
       ctx,
       `Potential implicit dependencies found: ${[...implicitDependencies]
         .map((id) => colors.cyan(id))
-        .join(", ")}`,
-    );
+        .join(', ')}`
+    )
   }
 }
 
 export function validatePackage(
   pkg: PackageJson,
   rootDir: string,
-  ctx: BuildContext,
+  ctx: BuildContext
 ) {
   if (!pkg) {
-    return;
+    return
   }
 
   const filenames = new Set(
     [
-      ...(typeof pkg.bin === "string"
+      ...(typeof pkg.bin === 'string'
         ? [pkg.bin]
         : Object.values(pkg.bin || {})),
       pkg.main,
       pkg.module,
       pkg.types,
       pkg.typings,
-      ...extractExportFilenames(pkg.exports).map((i) => i.file),
-    ].map((i) => i && resolve(rootDir, i.replace(/\/[^/]*\*.*$/, ""))),
-  );
+      ...extractExportFilenames(pkg.exports).map((i) => i.file)
+    ].map((i) => i && resolve(rootDir, i.replace(/\/[^/]*\*.*$/, '')))
+  )
 
-  const missingOutputs = [];
+  const missingOutputs = []
 
   for (const filename of filenames) {
-    if (filename && !filename.includes("*") && !existsSync(filename)) {
-      missingOutputs.push(filename.replace(`${rootDir}/`, ""));
+    if (filename && !filename.includes('*') && !existsSync(filename)) {
+      missingOutputs.push(filename.replace(`${rootDir}/`, ''))
     }
   }
   if (missingOutputs.length > 0) {
@@ -82,7 +82,7 @@ export function validatePackage(
       ctx,
       `Potential missing package.json files: ${missingOutputs
         .map((o) => colors.cyan(o))
-        .join(", ")}`,
-    );
+        .join(', ')}`
+    )
   }
 }
