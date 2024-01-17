@@ -18,7 +18,7 @@
     "@changesets/cli": "^2.27.1",
     "@taskylizard/eslint-config": "workspace:^",
     "@taskylizard/tasker": "workspace:^",
-    "@types/node": "^20.11.4",
+    "@types/node": "^20.11.5",
     "eslint": "^8.56.0",
     "knip": "^4.0.1",
     "prettier": "3.2.2",
