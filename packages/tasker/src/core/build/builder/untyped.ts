@@ -2,7 +2,6 @@ import { writeFile } from 'node:fs/promises'
 import { resolve } from 'pathe'
 import { resolveSchema, generateTypes, generateMarkdown } from 'untyped'
 
-// @ts-expect-error
 import untypedPlugin from 'untyped/babel-plugin'
 import jiti from 'jiti'
 import { pascalCase } from 'scule'

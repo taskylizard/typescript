@@ -55,12 +55,6 @@ export const typescript: Config = [
        */
       'ts/default-param-last': 'error',
       /**
-       * Require explicit return types on functions and class methods.
-       *
-       * 🚫 Not fixable - https://typescript-eslint.io/rules/explicit-function-return-type/
-       */
-      'ts/explicit-function-return-type': ['warn', { allowExpressions: true }],
-      /**
        * Require using function property types in method signatures.
        *
        * These have enhanced typechecking, whereas method signatures do not.
