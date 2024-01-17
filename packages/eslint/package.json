@@ -1,6 +1,6 @@
 {
   "name": "@taskylizard/eslint-config",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "tasky's (flat) eslint config.",
   "keywords": [
     "eslint",
