@@ -17,7 +17,7 @@
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
     "@taskylizard/eslint-config": "workspace:^",
-    "@taskylizard/tasker": "workspace:^",
+    "@taskylizard/tasker": "^1.0.5",
     "@types/node": "^20.11.5",
     "eslint": "^8.56.0",
     "knip": "^4.0.1",
