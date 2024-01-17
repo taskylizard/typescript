@@ -62,7 +62,7 @@ export const autoPreset = definePreset(() => {
  * @param sourceFiles A list of source files to use for inferring entries.
  * @param rootDir The root directory of the project.
  */
-export function inferEntries(
+function inferEntries(
   pkg: PackageJson,
   sourceFiles: string[],
   rootDir?: string
@@ -162,7 +162,7 @@ export function inferEntries(
   return { entries, cjs, dts, warnings }
 }
 
-export const getEntrypointPaths = (path: string) => {
+const getEntrypointPaths = (path: string) => {
   const segments = normalize(path).split('/')
   return segments
     .map((_, index) => segments.slice(index).join('/'))

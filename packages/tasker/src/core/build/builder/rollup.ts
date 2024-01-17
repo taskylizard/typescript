@@ -245,7 +245,7 @@ const getChunkFilename = (
   return `shared/${ctx.options.name}.[hash].${ext}`
 }
 
-export function getRollupOptions(ctx: BuildContext): RollupOptions {
+function getRollupOptions(ctx: BuildContext): RollupOptions {
   return (<RollupOptions>{
     input: Object.fromEntries(
       ctx.options.entries

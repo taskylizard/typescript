@@ -12,9 +12,9 @@ import type commonjs from '@rollup/plugin-commonjs'
 import type { JITIOptions } from 'jiti'
 import type { EsbuildOptions } from './builder/plugins/esbuild'
 
-export type RollupCommonJSOptions = Parameters<typeof commonjs>[0] & {}
+type RollupCommonJSOptions = Parameters<typeof commonjs>[0] & {}
 
-export interface BaseBuildEntry {
+interface BaseBuildEntry {
   builder?: 'untyped' | 'rollup' | 'mkdist'
   input: string
   name?: string
@@ -27,7 +27,7 @@ export interface UntypedBuildEntry extends BaseBuildEntry {
   defaults?: Record<string, any>
 }
 
-export interface RollupBuildEntry extends BaseBuildEntry {
+interface RollupBuildEntry extends BaseBuildEntry {
   builder: 'rollup'
 }
 
@@ -43,7 +43,7 @@ export type BuildEntry =
   | UntypedBuildEntry
   | MkdistBuildEntry
 
-export interface RollupBuildOptions {
+interface RollupBuildOptions {
   emitCJS?: boolean
   cjsBridge?: boolean
   preserveDynamicImports?: boolean
@@ -120,7 +120,7 @@ export interface BuildConfig
   hooks?: Partial<BuildHooks>
 }
 
-export interface UntypedOutput {
+interface UntypedOutput {
   fileName: string
   contents: string
 }
@@ -132,7 +132,7 @@ export interface UntypedOutputs {
   declaration?: UntypedOutput
 }
 
-export interface BuildHooks {
+interface BuildHooks {
   'build:prepare': (ctx: BuildContext) => void | Promise<void>
   'build:before': (ctx: BuildContext) => void | Promise<void>
   'build:done': (ctx: BuildContext) => void | Promise<void>

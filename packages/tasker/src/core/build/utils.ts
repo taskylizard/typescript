@@ -15,7 +15,7 @@ import type { BuildPreset, BuildConfig, BuildContext } from './types'
 
 export const logger = _log.create({ defaults: { tag: 'build' } })
 
-export function copyDirSync(srcDir: string, destDir: string): void {
+function copyDirSync(srcDir: string, destDir: string): void {
   if (!existsSync(srcDir)) return
 
   mkdirSync(destDir, { recursive: true })
@@ -42,7 +42,7 @@ export const copyPublicDir = (
   copyDirSync(resolve(dir === true ? 'public' : dir), outDir)
 }
 
-export async function ensuredir(path: string): Promise<void> {
+async function ensuredir(path: string): Promise<void> {
   await fsp.mkdir(dirname(path), { recursive: true })
 }
 
@@ -139,7 +139,7 @@ export function resolvePreset(
   return preset as BuildConfig
 }
 
-export function inferExportType(
+function inferExportType(
   condition: string,
   previousConditions: string[] = [],
   filename = ''
@@ -173,7 +173,7 @@ export function inferExportType(
   }
 }
 
-export type OutputDescriptor = { file: string; type?: 'esm' | 'cjs' }
+type OutputDescriptor = { file: string; type?: 'esm' | 'cjs' }
 
 export function extractExportFilenames(
   exports: PackageJson['exports'],
