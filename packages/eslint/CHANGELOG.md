@@ -1,5 +1,11 @@
 # @taskylizard/eslint-config
 
+## 1.1.0
+
+### Minor Changes
+
+- f4baeb9: revamp configuration
+
 ## 1.0.5
 
 ### Patch Changes
