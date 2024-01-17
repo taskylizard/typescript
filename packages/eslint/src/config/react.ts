@@ -1,6 +1,5 @@
-import type { FlatESLintConfigItem } from 'eslint-define-config'
-
 import { pluginImport, pluginReact, pluginReactHooks } from '../plugins'
+import { GLOB_JSX, GLOB_TSX } from 'src/glob'
 
 const disabledRules = {
   // Handled better by TypeScript
@@ -10,13 +9,9 @@ const disabledRules = {
   'react/react-in-jsx-scope': 'off'
 } as const
 
-export const react: FlatESLintConfigItem[] = [
+export const react: Config = [
   {
-    settings: {
-      react: {
-        version: 'detect'
-      }
-    },
+    files: [GLOB_JSX, GLOB_TSX],
     plugins: {
       react: pluginReact,
       reacthooks: pluginReactHooks
@@ -118,6 +113,11 @@ export const react: FlatESLintConfigItem[] = [
        * 🔧 Fixable - https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md
        */
       'react/self-closing-comp': 'warn'
+    },
+    settings: {
+      react: {
+        version: 'detect'
+      }
     }
   }
 ]

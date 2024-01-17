@@ -1,19 +1,18 @@
-import type { FlatESLintConfigItem } from 'eslint-define-config'
-
 import { GLOB_HTML } from '../glob'
 import { parserHTML, pluginHTML } from '../plugins'
 
-export const html: FlatESLintConfigItem[] = [
+export const html: Config = [
   {
     files: [GLOB_HTML],
-    plugins: {
-      html: pluginHTML
-    },
     languageOptions: {
       parser: parserHTML
     },
+    plugins: {
+      html: pluginHTML
+    },
     rules: {
-      ...pluginHTML.configs.recommended.rules,
+      // FIXME: causes error
+      // ...pluginHTML.configs.recommended.rules,
       'html/id-naming-convention': ['error', 'kebab-case'],
       'html/indent': 'off',
       'html/no-abstract-roles': 'error',

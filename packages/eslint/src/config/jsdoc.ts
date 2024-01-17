@@ -1,8 +1,6 @@
-import type { FlatESLintConfigItem } from 'eslint-define-config'
-
 import { pluginJsdoc } from '../plugins'
 
-export const jsdoc: FlatESLintConfigItem[] = [
+export const jsdoc: Config = [
   {
     plugins: {
       jsdoc: pluginJsdoc

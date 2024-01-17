@@ -1,8 +1,6 @@
-import type { FlatESLintConfigItem } from 'eslint-define-config'
-
 import { pluginImport } from '../plugins'
 
-export const imports: FlatESLintConfigItem[] = [
+export const imports: Config = [
   {
     plugins: {
       import: pluginImport

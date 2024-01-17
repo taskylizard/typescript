@@ -19,4 +19,6 @@ export interface ConfigOptions {
   vue?: boolean
   /** Astro support. */
   astro?: boolean
+  /** UnoCSS support. */
+  unocss?: boolean
 }

@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es2020",
-    "module": "es2020",
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["ESNext"],
     "moduleResolution": "Bundler",
     "baseUrl": ".",
     "esModuleInterop": true,
@@ -9,6 +10,6 @@
     "noUnusedLocals": true,
     "skipLibCheck": true
   },
-  "include": ["**/*.ts"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["**/*.ts", "./global.d.ts"],
+  "exclude": ["dist", "node_modules"]
 }

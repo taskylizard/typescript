@@ -1,8 +1,6 @@
-import { type FlatESLintConfigItem } from 'eslint-define-config'
-
 import { configPrettier, pluginPrettier } from '../plugins'
 
-export const prettier: FlatESLintConfigItem[] = [
+export const prettier: Config = [
   {
     plugins: {
       prettier: pluginPrettier
@@ -10,6 +8,7 @@ export const prettier: FlatESLintConfigItem[] = [
     rules: {
       ...configPrettier.rules,
       'prettier/prettier': 'warn'
-    }
+    },
+    settings: {}
   }
 ]

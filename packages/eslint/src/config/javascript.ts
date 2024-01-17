@@ -1,13 +1,11 @@
-import type { FlatESLintConfigItem } from 'eslint-define-config'
 import globals from 'globals'
 
 import { pluginEarlyReturn, pluginUnusedImports } from '../plugins'
+import { GLOB_JS } from 'src/glob'
 
-export const javascript: FlatESLintConfigItem[] = [
+export const javascript: Config = [
   {
-    linterOptions: {
-      reportUnusedDisableDirectives: true
-    },
+    files: [GLOB_JS],
     languageOptions: {
       globals: {
         ...globals.browser,
@@ -18,97 +16,14 @@ export const javascript: FlatESLintConfigItem[] = [
         sourceType: 'module'
       }
     },
+    linterOptions: {
+      reportUnusedDisableDirectives: true
+    },
     plugins: {
-      'unused-imports': pluginUnusedImports,
-      'early-return': pluginEarlyReturn
+      'early-return': pluginEarlyReturn,
+      'unused-imports': pluginUnusedImports
     },
     rules: {
-      /**
-       * Disallow expressions where the operation doesn't affect the value.
-       *
-       * 🚫 Not fixable - https://eslint.org/docs/rules/no-console
-       */
-      'no-constant-binary-expression': 'error',
-      /**
-       * Disallow returning values from Promise executor functions.
-       *
-       * 🚫 Not fixable - https://eslint.org/docs/rules/no-promise-executor-return
-       */
-      'no-promise-executor-return': 'error',
-      /**
-       * Disallow template literal placeholder syntax in regular strings, as
-       * these are likely errors.
-       *
-       * 🚫 Not fixable - https://eslint.org/docs/rules/no-template-curly-in-string
-       */
-      'no-template-curly-in-string': 'error',
-      /**
-       *  Disallow loops with a body that allows only one iteration.
-       *
-       * 🚫 Not fixable - https://eslint.org/docs/rules/no-unreachable-loop
-       */
-      'no-unreachable-loop': 'error',
-      /**
-       * Disallow useless computed property keys.
-       *
-       * 🔧 Fixable - https://eslint.org/docs/rules/no-useless-computed-key
-       */
-      'no-useless-computed-key': 'warn',
-      /**
-       * Disallow renaming import, export, and destructured assignments to the
-       * same name.
-       *
-       * 🔧 Fixable - https://eslint.org/docs/rules/no-useless-rename
-       */
-      'no-useless-rename': 'warn',
-      /**
-       * Require `let` or `const` instead of `var`.
-       *
-       * 🔧 Fixable - https://eslint.org/docs/rules/no-var
-       */
-      'no-var': 'error',
-      /**
-       * Require object literal shorthand syntax.
-       *
-       * 🔧 Fixable - https://eslint.org/docs/rules/object-shorthand
-       */
-      'object-shorthand': 'warn',
-      /**
-       * Require default to `const` instead of `let`.
-       *
-       * 🔧 Fixable - https://eslint.org/docs/rules/prefer-const
-       */
-      'prefer-const': 'warn',
-      /**
-       * Disallow parseInt() in favor of binary, octal, and hexadecimal literals.
-       *
-       * 🔧 Fixable - https://eslint.org/docs/rules/prefer-numeric-literals
-       */
-      'prefer-numeric-literals': 'error',
-      /**
-       * Require using rest parameters instead of `arguments`.
-       *
-       * 🚫 Not fixable - https://eslint.org/docs/rules/prefer-rest-params
-       */
-      'prefer-rest-params': 'error',
-      /**
-       * Require using spread syntax instead of `.apply()`.
-       *
-       * 🚫 Not fixable - https://eslint.org/docs/rules/prefer-spread
-       */
-      'prefer-spread': 'error',
-      /**
-       * Require using template literals instead of string concatenation.
-       *
-       * 🔧 Fixable - https://eslint.org/docs/rules/prefer-template
-       */
-      'prefer-template': 'warn',
-      /**
-       * Require a `Symbol` description.
-       *
-       * 🚫 Not fixable - https://eslint.org/docs/rules/symbol-description
-       */
-      'symbol-description': 'error',
       /**
        * Require return statements in array methods callbacks.
        *
@@ -134,6 +49,12 @@ export const javascript: FlatESLintConfigItem[] = [
        */
       'default-case-last': 'error',
       /**
+       * Prefer returning early.
+       *
+       * 🚫 Not fixable
+       */
+      'early-return/prefer-early-return': ['error', { maximumStatements: 2 }],
+      /**
        * Require triple equals (`===` and `!==`).
        *
        * 🔧 Fixable - https://eslint.org/docs/rules/eqeqeq
@@ -157,6 +78,12 @@ export const javascript: FlatESLintConfigItem[] = [
        * 🚫 Not fixable - https://eslint.org/docs/rules/no-caller
        */
       'no-caller': 'error',
+      /**
+       * Disallow expressions where the operation doesn't affect the value.
+       *
+       * 🚫 Not fixable - https://eslint.org/docs/rules/no-console
+       */
+      'no-constant-binary-expression': 'error',
       /**
        * Disallow returning value in constructor.
        *
@@ -218,6 +145,12 @@ export const javascript: FlatESLintConfigItem[] = [
        */
       'no-iterator': 'error',
       /**
+       * Disallow labels that share a name with a variable.
+       *
+       * 🚫 Not fixable - https://eslint.org/docs/rules/no-label-var
+       */
+      'no-label-var': 'error',
+      /**
        * Disallow use of labels for anything other than loops and switches.
        *
        * 🚫 Not fixable - https://eslint.org/docs/rules/no-labels
@@ -260,6 +193,12 @@ export const javascript: FlatESLintConfigItem[] = [
        */
       'no-param-reassign': 'error',
       /**
+       * Disallow returning values from Promise executor functions.
+       *
+       * 🚫 Not fixable - https://eslint.org/docs/rules/no-promise-executor-return
+       */
+      'no-promise-executor-return': 'error',
+      /**
        * Disallow usage of the deprecated `__proto__` property.
        *
        * 🚫 Not fixable - https://eslint.org/docs/rules/no-proto
@@ -296,60 +235,24 @@ export const javascript: FlatESLintConfigItem[] = [
        */
       'no-sequences': 'error',
       /**
-       * Disallow unnecessary `.call()` and `.apply()`.
+       * Disallow template literal placeholder syntax in regular strings, as
+       * these are likely errors.
        *
-       * 🚫 Not fixable - https://eslint.org/docs/rules/no-useless-call
+       * 🚫 Not fixable - https://eslint.org/docs/rules/no-template-curly-in-string
        */
-      'no-useless-call': 'error',
-      /**
-       * Disallow unnecessary concatenation of strings.
-       *
-       * 🚫 Not fixable - https://eslint.org/docs/rules/no-useless-concat
-       */
-      'no-useless-concat': 'error',
-      /**
-       * Disallow redundant return statements.
-       *
-       * 🔧 Fixable - https://eslint.org/docs/rules/no-useless-return
-       */
-      'no-useless-return': 'warn',
-      /**
-       * Require using named capture groups in regular expressions.
-       *
-       * 🚫 Not fixable - https://eslint.org/docs/rules/prefer-named-capture-group
-       */
-      'prefer-named-capture-group': 'error',
-      /**
-       * Require using Error objects as Promise rejection reasons.
-       *
-       * 🚫 Not fixable - https://eslint.org/docs/rules/prefer-promise-reject-errors
-       */
-      'prefer-promise-reject-errors': ['error', { allowEmptyReject: true }],
-      /**
-       * Disallow use of the RegExp constructor in favor of regular expression
-       * literals.
-       *
-       * 🚫 Not fixable - https://eslint.org/docs/rules/prefer-regex-literals
-       */
-      'prefer-regex-literals': 'error',
-      /**
-       * Disallow "Yoda conditions", ensuring the comparison.
-       *
-       * 🔧 Fixable - https://eslint.org/docs/rules/yoda
-       */
-      yoda: 'warn',
-      /**
-       * Disallow labels that share a name with a variable.
-       *
-       * 🚫 Not fixable - https://eslint.org/docs/rules/no-label-var
-       */
-      'no-label-var': 'error',
+      'no-template-curly-in-string': 'error',
       /**
        * Disallow initializing variables to `undefined`.
        *
        * 🔧 Fixable - https://eslint.org/docs/rules/no-undef-init
        */
       'no-undef-init': 'warn',
+      /**
+       *  Disallow loops with a body that allows only one iteration.
+       *
+       * 🚫 Not fixable - https://eslint.org/docs/rules/no-unreachable-loop
+       */
+      'no-unreachable-loop': 'error',
       /**
        * Disallow unused variables.
        *
@@ -366,11 +269,109 @@ export const javascript: FlatESLintConfigItem[] = [
         }
       ],
       /**
-       * Prefer returning early.
+       * Disallow unnecessary `.call()` and `.apply()`.
        *
-       * 🚫 Not fixable
+       * 🚫 Not fixable - https://eslint.org/docs/rules/no-useless-call
        */
-      'early-return/prefer-early-return': ['error', { maximumStatements: 2 }]
+      'no-useless-call': 'error',
+      /**
+       * Disallow useless computed property keys.
+       *
+       * 🔧 Fixable - https://eslint.org/docs/rules/no-useless-computed-key
+       */
+      'no-useless-computed-key': 'warn',
+      /**
+       * Disallow unnecessary concatenation of strings.
+       *
+       * 🚫 Not fixable - https://eslint.org/docs/rules/no-useless-concat
+       */
+      'no-useless-concat': 'error',
+      /**
+       * Disallow renaming import, export, and destructured assignments to the
+       * same name.
+       *
+       * 🔧 Fixable - https://eslint.org/docs/rules/no-useless-rename
+       */
+      'no-useless-rename': 'warn',
+      /**
+       * Disallow redundant return statements.
+       *
+       * 🔧 Fixable - https://eslint.org/docs/rules/no-useless-return
+       */
+      'no-useless-return': 'warn',
+      /**
+       * Require `let` or `const` instead of `var`.
+       *
+       * 🔧 Fixable - https://eslint.org/docs/rules/no-var
+       */
+      'no-var': 'error',
+      /**
+       * Require object literal shorthand syntax.
+       *
+       * 🔧 Fixable - https://eslint.org/docs/rules/object-shorthand
+       */
+      'object-shorthand': 'warn',
+      /**
+       * Require default to `const` instead of `let`.
+       *
+       * 🔧 Fixable - https://eslint.org/docs/rules/prefer-const
+       */
+      'prefer-const': 'warn',
+      /**
+       * Require using named capture groups in regular expressions.
+       *
+       * 🚫 Not fixable - https://eslint.org/docs/rules/prefer-named-capture-group
+       */
+      'prefer-named-capture-group': 'error',
+      /**
+       * Disallow parseInt() in favor of binary, octal, and hexadecimal literals.
+       *
+       * 🔧 Fixable - https://eslint.org/docs/rules/prefer-numeric-literals
+       */
+      'prefer-numeric-literals': 'error',
+      /**
+       * Require using Error objects as Promise rejection reasons.
+       *
+       * 🚫 Not fixable - https://eslint.org/docs/rules/prefer-promise-reject-errors
+       */
+      'prefer-promise-reject-errors': ['error', { allowEmptyReject: true }],
+      /**
+       * Disallow use of the RegExp constructor in favor of regular expression
+       * literals.
+       *
+       * 🚫 Not fixable - https://eslint.org/docs/rules/prefer-regex-literals
+       */
+      'prefer-regex-literals': 'error',
+      /**
+       * Require using rest parameters instead of `arguments`.
+       *
+       * 🚫 Not fixable - https://eslint.org/docs/rules/prefer-rest-params
+       */
+      'prefer-rest-params': 'error',
+      /**
+       * Require using spread syntax instead of `.apply()`.
+       *
+       * 🚫 Not fixable - https://eslint.org/docs/rules/prefer-spread
+       */
+      'prefer-spread': 'error',
+      /**
+       * Require using template literals instead of string concatenation.
+       *
+       * 🔧 Fixable - https://eslint.org/docs/rules/prefer-template
+       */
+      'prefer-template': 'warn',
+      /**
+       * Require a `Symbol` description.
+       *
+       * 🚫 Not fixable - https://eslint.org/docs/rules/symbol-description
+       */
+      'symbol-description': 'error',
+      /**
+       * Disallow "Yoda conditions", ensuring the comparison.
+       *
+       * 🔧 Fixable - https://eslint.org/docs/rules/yoda
+       */
+      yoda: 'warn'
     }
   }
 ]

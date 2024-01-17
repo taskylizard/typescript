@@ -1,9 +1,9 @@
-import type { FlatESLintConfigItem } from 'eslint-define-config'
-
 import { pluginJSXA11y } from '../plugins'
+import { GLOB_JSX, GLOB_TSX } from 'src/glob'
 
-export const JSX11y: FlatESLintConfigItem[] = [
+export const JSX11y: Config = [
   {
+    files: [GLOB_JSX, GLOB_TSX],
     plugins: {
       a11y: pluginJSXA11y
     },

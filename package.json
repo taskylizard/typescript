@@ -8,7 +8,8 @@
     "format": "pnpm --parallel -r format",
     "build": "pnpm --parallel -r build",
     "release": "pnpm build && pnpm changeset publish",
-    "version-packages": "changeset version"
+    "version-packages": "changeset version",
+    "knip": "knip"
   },
   "author": "taskylizard",
   "license": "MIT",
@@ -19,10 +20,12 @@
     "@taskylizard/tasker": "workspace:^",
     "@types/node": "^20.11.4",
     "eslint": "^8.56.0",
+    "knip": "^4.0.1",
     "prettier": "3.2.2",
     "prettier-plugin-packagejson": "^2.4.9",
     "tsup": "^8.0.1",
-    "tsx": "^4.7.0"
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
   },
   "pnpm": {
     "overrides": {
@@ -41,8 +44,5 @@
       "object.values": "npm:@nolyfill/object.values@latest",
       "string.prototype.matchall": "npm:@nolyfill/string.prototype.matchall@latest"
     }
-  },
-  "dependencies": {
-    "typescript": "^5.3.3"
   }
 }

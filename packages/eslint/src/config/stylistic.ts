@@ -1,6 +1,4 @@
-import type { FlatESLintConfigItem } from 'eslint-define-config'
-
-export const stylistic: FlatESLintConfigItem[] = [
+export const stylistic: Config = [
   {
     rules: {
       /**
@@ -24,13 +22,6 @@ export const stylistic: FlatESLintConfigItem[] = [
        * 🚫 Not fixable - https://eslint.org/docs/rules/new-cap
        */
       'new-cap': ['error', { capIsNew: false }],
-      /**
-       * Disallow the omission of parentheses when invoking a constructor with
-       * no arguments.
-       *
-       * 🔧 Fixable - https://eslint.org/docs/rules/new-parens
-       */
-      'new-parens': 'warn',
       /**
        * Disallow use of the Array constructor.
        *

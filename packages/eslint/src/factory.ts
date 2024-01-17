@@ -19,7 +19,10 @@ import {
   typescript,
   unicorn,
   vue,
-  yaml
+  yaml,
+  comments,
+  perfectionist,
+  unocss
 } from './config'
 import type { ConfigOptions } from './types'
 
@@ -46,7 +49,10 @@ export function tasky(
     node,
     jsdoc,
     prettier,
-    stylistic
+    stylistic,
+    comments,
+    // Enabled manually
+    perfectionist
   ]
   if (options.typescript ?? true) configs.push(typescript)
   if (options.markdown ?? true) configs.push(markdown)
@@ -59,6 +65,7 @@ export function tasky(
   if (options.react) configs.push(react, JSX11y)
   if (options.astro) configs.push(astro)
   if (options.jest) configs.push(jest)
+  if (options.unocss) configs.push(unocss)
 
   return combine(...configs, ...userConfig)
 }

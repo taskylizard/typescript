@@ -1,3 +1,4 @@
+/* eslint-disable ts/ban-ts-comment */
 // @ts-nocheck
 export { default as pluginImport } from 'eslint-plugin-i'
 export { default as pluginJsdoc } from 'eslint-plugin-jsdoc'
@@ -21,6 +22,9 @@ export { default as pluginReact } from 'eslint-plugin-react'
 export { default as pluginReactHooks } from 'eslint-plugin-react-hooks'
 export { default as pluginJSXA11y } from 'eslint-plugin-jsx-a11y'
 export { default as pluginAstro } from 'eslint-plugin-astro'
+export { default as pluginUnoCSS } from '@unocss/eslint-plugin'
 export { default as parserAstro } from 'astro-eslint-parser'
 export { default as pluginJest } from 'eslint-plugin-jest'
 export { default as pluginEarlyReturn } from '@regru/eslint-plugin-prefer-early-return'
+export { default as pluginComments } from 'eslint-plugin-eslint-comments'
+export { default as pluginPerfectionist } from 'eslint-plugin-perfectionist'
