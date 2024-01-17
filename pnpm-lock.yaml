@@ -69,6 +69,9 @@ importers:
       '@regru/eslint-plugin-prefer-early-return':
         specifier: ^1.0.0
         version: 1.0.0
+      '@stylistic/eslint-plugin-migrate':
+        specifier: ^1.5.4
+        version: 1.5.4(eslint@8.53.0)(typescript@5.3.3)
       '@typescript-eslint/eslint-plugin':
         specifier: ^6.19.0
         version: 6.19.0(@typescript-eslint/parser@6.19.0)(eslint@8.53.0)(typescript@5.3.3)
@@ -901,6 +904,10 @@ packages:
     resolution: {integrity: sha512-PWiOzLIUAjN/w5K17PoF4n6sKBw0gqLHPhywmYHP4t1VFQQVYeb1yWsJwnMVEMl3tUHME7X/SJPZLmtG7XBDxQ==}
     engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
 
+  /@eslint-stylistic/metadata@1.5.4:
+    resolution: {integrity: sha512-i/Y6fJ+uZ6y/AiDkSlV67hO2nP0XUQLORdWEKiC4k+Ch3kGxZ1YV2GO+bwuyk8ajKIHlVSDhPSvyDy0GuZn6pw==}
+    dev: false
+
   /@eslint/eslintrc@2.1.3:
     resolution: {integrity: sha512-yZzuIG+jnVu6hNSzFEN07e8BxF3uAzYtQb6uDkaYZLo6oYZDCq454c5kB8zxnzfCYyP4MIuyBn10L0DqwujTmA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -1570,6 +1577,18 @@ packages:
       ignore: 5.2.4
       p-map: 4.0.0
     dev: true
+
+  /@stylistic/eslint-plugin-migrate@1.5.4(eslint@8.53.0)(typescript@5.3.3):
+    resolution: {integrity: sha512-1M6dJJJ9UDCV0XyVsmqUD7+59aSRdk0WIMib5mUcXVpVjPISCnmuHTzxQja6p3ZQU4lwkQz9S2dyD+xDertXLw==}
+    engines: {node: ^16.0.0 || >=18.0.0}
+    dependencies:
+      '@eslint-stylistic/metadata': 1.5.4
+      '@typescript-eslint/utils': 6.19.0(eslint@8.53.0)(typescript@5.3.3)
+    transitivePeerDependencies:
+      - eslint
+      - supports-color
+      - typescript
+    dev: false
 
   /@trysound/sax@0.2.0:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}

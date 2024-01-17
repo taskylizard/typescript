@@ -14,7 +14,7 @@ export function shebangPlugin(): Plugin {
         if (output.type !== 'chunk') {
           continue
         }
-        if (output.code?.match(SHEBANG_RE)) {
+        if (SHEBANG_RE.test(output.code)) {
           const outFile = resolve(options.dir!, fileName)
           await makeExecutable(outFile)
         }
