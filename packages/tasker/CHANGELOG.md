@@ -1,5 +1,11 @@
 # @taskylizard/tasker
 
+## 1.0.5
+
+### Patch Changes
+
+- 184edc5: chore: bump deps
+
 ## 1.0.4
 
 ### Patch Changes
