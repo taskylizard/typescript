@@ -1,5 +1,11 @@
 # @taskylizard/eslint-config
 
+## 1.1.1
+
+### Patch Changes
+
+- 184edc5: chore: bump deps
+
 ## 1.1.0
 
 ### Minor Changes
