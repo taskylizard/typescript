@@ -1,5 +1,11 @@
 # @taskylizard/eslint-config
 
+## 1.1.2
+
+### Patch Changes
+
+- 58d16cc: fix(eslint): vue/html-self-closing void elements to always
+
 ## 1.1.1
 
 ### Patch Changes
