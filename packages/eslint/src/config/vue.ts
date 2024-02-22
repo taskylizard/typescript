@@ -69,6 +69,7 @@ export const vue: Config = [
       ],
       'vue/html-indent': ['error', 2],
       'vue/html-quotes': ['error', 'double'],
+      'vue/html-self-closing': ['error', { html: { void: 'always' } }],
       'vue/key-spacing': ['error', { afterColon: true, beforeColon: false }],
       'vue/keyword-spacing': ['error', { after: true, before: true }],
       'vue/max-attributes-per-line': 'off',
