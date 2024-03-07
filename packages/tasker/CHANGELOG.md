@@ -1,5 +1,11 @@
 # @taskylizard/tasker
 
+## 1.0.7
+
+### Patch Changes
+
+- b013d8a: bump esbuild
+
 ## 1.0.6
 
 ### Patch Changes
