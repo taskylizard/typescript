@@ -1,5 +1,11 @@
 # @taskylizard/tasker
 
+## 1.0.6
+
+### Patch Changes
+
+- e52bd34: relax on typescript peerDependency
+
 ## 1.0.5
 
 ### Patch Changes
