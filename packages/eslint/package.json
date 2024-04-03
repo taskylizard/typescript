@@ -60,7 +60,7 @@
     "eslint-plugin-prettier": "5.0.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-unicorn": "^50.0.1",
+    "eslint-plugin-unicorn": "^52.0.0",
     "eslint-plugin-unused-imports": "^3.0.0",
     "eslint-plugin-vue": "^9.20.1",
     "eslint-plugin-yml": "^1.12.2",
