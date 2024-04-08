@@ -124,8 +124,8 @@ importers:
         specifier: ^3.0.1
         version: 3.0.1(eslint@8.53.0)
       eslint-plugin-n:
-        specifier: ^16.6.2
-        version: 16.6.2(eslint@8.53.0)
+        specifier: ^17.0.0
+        version: 17.0.0(eslint@8.53.0)
       eslint-plugin-perfectionist:
         specifier: ^2.5.0
         version: 2.5.0(astro-eslint-parser@0.16.1)(eslint@8.53.0)(typescript@5.3.3)(vue-eslint-parser@9.4.0)
@@ -2377,7 +2377,8 @@ packages:
   /builtins@5.0.1:
     resolution: {integrity: sha512-qwVpFEHNfhYJIzNRBvd2C1kyo6jz3ZSMPyyuR47OPdiKWlbYnZNyDWuyR175qDnAJLiCo5fBBqPb3RiXgWlkOQ==}
     dependencies:
-      semver: 7.5.4
+      semver: 7.6.0
+    dev: true
 
   /bundle-name@3.0.0:
     resolution: {integrity: sha512-PKA4BeSvBpQKQ8iPOGCSiell+N8P+Tf1DlwqmYhpe2gAhKPHn8EYOxVT+ShuGmhg8lN8XiSlS80yiExKXrURlw==}
@@ -3387,24 +3388,22 @@ packages:
       - supports-color
     dev: false
 
-  /eslint-plugin-n@16.6.2(eslint@8.53.0):
-    resolution: {integrity: sha512-6TyDmZ1HXoFQXnhCTUjVFULReoBPOAjpuiKELMkeP40yffI/1ZRO+d9ug/VC6fqISo2WkuIBk3cvuRPALaWlOQ==}
-    engines: {node: '>=16.0.0'}
+  /eslint-plugin-n@17.0.0(eslint@8.53.0):
+    resolution: {integrity: sha512-0Ihff+kWUIiXYTNTotGj/yRI1X5uCh/lef5Hr7ih/mFeYMQ3bPfN0KxlrfhU+Xn4x697l/TPO6zxqE33M1yD0w==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
-      eslint: '>=7.0.0'
+      eslint: '>=8.23.0'
     dependencies:
       '@eslint-community/eslint-utils': 4.4.0(eslint@8.53.0)
-      builtins: 5.0.1
+      enhanced-resolve: 5.15.0
       eslint: 8.53.0
       eslint-plugin-es-x: 7.5.0(eslint@8.53.0)
       get-tsconfig: 4.7.2
-      globals: 13.24.0
+      globals: 14.0.0
       ignore: 5.2.4
       is-builtin-module: 3.2.1
-      is-core-module: 2.13.1
-      minimatch: 3.1.2
-      resolve: 1.22.6
-      semver: 7.5.4
+      minimatch: 9.0.3
+      semver: 7.6.0
     dev: false
 
   /eslint-plugin-perfectionist@2.5.0(astro-eslint-parser@0.16.1)(eslint@8.53.0)(typescript@5.3.3)(vue-eslint-parser@9.4.0):
@@ -6032,7 +6031,6 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
-    dev: true
 
   /set-blocking@2.0.0:
     resolution: {integrity: sha512-KiKBS8AnWGEyLzofFfmvKwpdPzqiy16LvQfK3yv/fVH7Bj13/wl3JSR1J+rfgRE9q7xUJK4qvgS8raSOeLUehw==}
