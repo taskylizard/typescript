@@ -1,12 +1,36 @@
-import { pluginUnoCSS } from '../plugins'
+import { ensurePackages, interopDefault } from '../utils'
+import type { OptionsUnoCSS, TypedFlatConfigItem } from '../types'
 
-export const unocss: Config = [
-  {
-    plugins: {
-      unocss: pluginUnoCSS as any
-    },
-    rules: {
-      'unocss/order': 'warn'
+export async function unocss(
+  options: OptionsUnoCSS = {}
+): Promise<TypedFlatConfigItem[]> {
+  const { attributify = true, strict = false } = options
+
+  await ensurePackages(['@unocss/eslint-plugin'])
+
+  const [pluginUnoCSS] = await Promise.all([
+    interopDefault(import('@unocss/eslint-plugin'))
+  ] as const)
+
+  return [
+    {
+      name: 'tasky/unocss',
+      plugins: {
+        unocss: pluginUnoCSS
+      },
+      rules: {
+        'unocss/order': 'warn',
+        ...(attributify
+          ? {
+            'unocss/order-attributify': 'warn'
+          }
+          : {}),
+        ...(strict
+          ? {
+            'unocss/blocklist': 'error'
+          }
+          : {})
+      }
     }
-  }
-]
+  ]
+}

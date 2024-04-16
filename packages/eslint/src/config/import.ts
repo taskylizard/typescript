@@ -1,23 +1,46 @@
-import { pluginImport } from '../plugins'
+import type { OptionsStylistic, TypedFlatConfigItem } from '../types'
+import { pluginAntfu, pluginImport } from '../plugins'
+import { GLOB_SRC_EXT } from '../glob'
 
-export const imports: Config = [
-  {
-    plugins: {
-      import: pluginImport
+export async function imports(
+  options: OptionsStylistic = {}
+): Promise<TypedFlatConfigItem[]> {
+  const { stylistic = true } = options
+
+  return [
+    {
+      name: 'tasky/imports/rules',
+      plugins: {
+        antfu: pluginAntfu,
+        import: pluginImport
+      },
+      rules: {
+        'antfu/import-dedupe': 'error',
+        'antfu/no-import-dist': 'error',
+        'antfu/no-import-node-modules-by-path': 'error',
+
+        'import/first': 'error',
+        'import/no-duplicates': 'error',
+        'import/no-mutable-exports': 'error',
+        'import/no-named-default': 'error',
+        'import/no-self-import': 'error',
+        'import/no-webpack-loader-syntax': 'error',
+        'import/order': 'error',
+
+        ...(stylistic
+          ? {
+              'import/newline-after-import': ['error', { count: 1 }]
+            }
+          : {})
+      }
     },
-    rules: {
-      'import/export': 'error',
-      'import/first': 'error',
-      'import/newline-after-import': [
-        'error',
-        { considerComments: true, count: 1 }
-      ],
-      'import/no-duplicates': 'error',
-      'import/no-mutable-exports': 'error',
-      'import/no-named-default': 'error',
-      'import/no-self-import': 'error',
-      'import/no-webpack-loader-syntax': 'error',
-      'import/order': 'error'
+    {
+      files: ['**/bin/**/*', `**/bin.${GLOB_SRC_EXT}`],
+      name: 'tasky/imports/disables/bin',
+      rules: {
+        'antfu/no-import-dist': 'off',
+        'antfu/no-import-node-modules-by-path': 'off'
+      }
     }
-  }
-]
+  ]
+}

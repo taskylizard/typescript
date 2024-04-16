@@ -2,14 +2,20 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "lib": ["ESNext"],
+    "lib": [
+      "ESNext"
+    ],
     "moduleResolution": "Bundler",
     "baseUrl": ".",
     "esModuleInterop": true,
     "strict": true,
-    "noUnusedLocals": true,
     "skipLibCheck": true
   },
-  "include": ["**/*.ts", "./global.d.ts"],
-  "exclude": ["dist", "node_modules"]
+  "include": [
+    "**/*.ts"
+  ],
+  "exclude": [
+    "./fixtures/**/*.*",
+    "./_fixtures/**/*.*"
+  ]
 }

@@ -1,28 +1,31 @@
 import globals from 'globals'
+import type { TypedFlatConfigItem } from 'src/types'
 
-export const browser: Config = [
-  {
-    languageOptions: {
-      globals: {
-        ...globals.browser
+export async function browser(): Promise<TypedFlatConfigItem[]> {
+  return [
+    {
+      languageOptions: {
+        globals: {
+          ...globals.browser
+        },
+        parserOptions: {
+          sourceType: 'module'
+        }
       },
-      parserOptions: {
-        sourceType: 'module'
+      rules: {
+        /**
+         * Disallow await inside of loops.
+         *
+         * 🚫 Not fixable - https://eslint.org/docs/rules/no-await-in-loop
+         */
+        'no-await-in-loop': 'error',
+        /**
+         * Disallow the use of console.
+         *
+         * 🚫 Not fixable - https://eslint.org/docs/rules/no-console
+         */
+        'no-console': 'error'
       }
-    },
-    rules: {
-      /**
-       * Disallow await inside of loops.
-       *
-       * 🚫 Not fixable - https://eslint.org/docs/rules/no-await-in-loop
-       */
-      'no-await-in-loop': 'error',
-      /**
-       * Disallow the use of console.
-       *
-       * 🚫 Not fixable - https://eslint.org/docs/rules/no-console
-       */
-      'no-console': 'error'
     }
-  }
-]
+  ]
+}

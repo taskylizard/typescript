@@ -1,21 +1,6 @@
 // @ts-check
-import styleMigrate from '@stylistic/eslint-plugin-migrate'
-import tasky from './dist/index.js'
+import { bundleRequire } from 'bundle-require'
 
-export default tasky(
-  {
-    files: ['src/config/*.ts'],
-    plugins: {
-      'style-migrate': styleMigrate
-    },
-    rules: {
-      'style-migrate/migrate': ['error', { namespaceTo: 'style' }]
-    }
-  },
-  {
-    files: ['src/**/*.ts'],
-    rules: {
-      'perfectionist/sort-objects': 'error'
-    }
-  }
-)
+export default bundleRequire({
+  filepath: './eslint.config.ts'
+}).then((r) => r.mod.default)
