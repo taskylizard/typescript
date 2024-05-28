@@ -1,8 +1,12 @@
 {
   "name": "@taskylizard/biome-config",
   "version": "0.1.0",
-  "devDependencies": {
-    "@biomejs/biome": "^1.7.3"
+  "description": "BiomeJS configuration",
+  "keywords": ["biome", "biomejs", "config", "configuration"],
+  "main": "biome.json",
+  "files": ["biome.json"],
+  "exports": {
+    ".": "./biome.json"
   },
   "peerDependencies": {
     "@biomejs/biome": "^1.7.3"

@@ -59,7 +59,7 @@ importers:
         version: 5.3.3
 
   packages/biome:
-    devDependencies:
+    dependencies:
       '@biomejs/biome':
         specifier: ^1.7.3
         version: 1.7.3
