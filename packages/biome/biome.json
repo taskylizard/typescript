@@ -1,0 +1,148 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.7.3/schema.json",
+  "vcs": {
+    "clientKind": "git",
+    "enabled": true
+  },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80,
+    "attributePosition": "auto"
+  },
+  "organizeImports": {
+    "enabled": true
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "complexity": {
+        "noExtraBooleanCast": "error",
+        "noMultipleSpacesInRegularExpressionLiterals": "error",
+        "noUselessCatch": "error",
+        "noUselessLabel": "error",
+        "noUselessLoneBlockStatements": "error",
+        "noUselessRename": "warn",
+        "noUselessTernary": "error",
+        "noWith": "error",
+        "useRegexLiterals": "error"
+      },
+      "correctness": {
+        "noConstAssign": "error",
+        "noConstantCondition": "error",
+        "noConstructorReturn": "error",
+        "noEmptyCharacterClassInRegex": "error",
+        "noEmptyPattern": "error",
+        "noGlobalObjectCalls": "error",
+        "noInnerDeclarations": "error",
+        "noInvalidConstructorSuper": "error",
+        "noNewSymbol": "error",
+        "noNonoctalDecimalEscape": "error",
+        "noPrecisionLoss": "error",
+        "noSelfAssign": "error",
+        "noSetterReturn": "error",
+        "noSwitchDeclarations": "error",
+        "noUndeclaredVariables": "error",
+        "noUnreachable": "error",
+        "noUnreachableSuper": "error",
+        "noUnsafeFinally": "error",
+        "noUnsafeOptionalChaining": "error",
+        "noUnusedLabels": "error",
+        "noUnusedVariables": "error",
+        "useIsNan": "error",
+        "useValidForDirection": "error",
+        "useYield": "error"
+      },
+      "nursery": {
+        "noDuplicateElseIf": "error",
+        "noUselessUndefinedInitialization": "warn",
+        "useArrayLiterals": "error",
+        "useConsistentBuiltinInstantiation": "error"
+      },
+      "security": {
+        "noGlobalEval": "error"
+      },
+      "style": {
+        "noArguments": "error",
+        "noCommaOperator": "error",
+        "noNonNullAssertion": "off",
+        "noParameterAssign": "error",
+        "noUselessElse": "warn",
+        "noVar": "error",
+        "useBlockStatements": "off",
+        "useCollapsedElseIf": "warn",
+        "useConst": "warn",
+        "useFilenamingConvention": {
+          "level": "error",
+          "options": {
+            "requireAscii": true,
+            "filenameCases": ["camelCase"]
+          }
+        },
+        "useNodejsImportProtocol": "warn",
+        "useNumericLiterals": "error",
+        "useTemplate": "warn"
+      },
+      "suspicious": {
+        "noAssignInExpressions": "error",
+        "noAsyncPromiseExecutor": "error",
+        "noCatchAssign": "error",
+        "noClassAssign": "error",
+        "noCompareNegZero": "error",
+        "noConfusingLabels": "error",
+        "noConsoleLog": "error",
+        "noControlCharactersInRegex": "error",
+        "noDebugger": "error",
+        "noDoubleEquals": "error",
+        "noDuplicateCase": "error",
+        "noDuplicateClassMembers": "error",
+        "noDuplicateObjectKeys": "error",
+        "noDuplicateParameters": "error",
+        "noEmptyBlockStatements": "error",
+        "noFallthroughSwitchClause": "error",
+        "noFunctionAssign": "error",
+        "noGlobalAssign": "error",
+        "noImportAssign": "error",
+        "noLabelVar": "error",
+        "noMisleadingCharacterClass": "error",
+        "noPrototypeBuiltins": "error",
+        "noRedeclare": "error",
+        "noSelfCompare": "error",
+        "noShadowRestrictedNames": "error",
+        "noUnsafeNegation": "error",
+        "useDefaultSwitchClauseLast": "error",
+        "useGetterReturn": "error",
+        "useValidTypeof": "error",
+        "useIsArray": "error",
+        "useAwait": "error",
+        "noUnsafeDeclarationMerging": "warn"
+      }
+    },
+    "ignore": ["!.*.js"]
+  },
+  "javascript": {
+    "formatter": {
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "trailingComma": "none",
+      "semicolons": "always",
+      "arrowParentheses": "always",
+      "bracketSpacing": true,
+      "bracketSameLine": false,
+      "quoteStyle": "single",
+      "attributePosition": "auto"
+    }
+  },
+  "overrides": [
+    {
+      "include": ["*.ts?(x)"]
+    },
+    {
+      "include": ["*.js?(x)", "*.mjs"]
+    }
+  ]
+}
