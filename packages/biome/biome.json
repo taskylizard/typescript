@@ -1,9 +1,6 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.7.3/schema.json",
-  "vcs": {
-    "clientKind": "git",
-    "enabled": true
-  },
+  "$schema": "https://biomejs.dev/schemas/1.8.0/schema.json",
+  "vcs": { "clientKind": "git", "enabled": true },
   "formatter": {
     "enabled": true,
     "formatWithErrors": false,
@@ -13,17 +10,45 @@
     "lineWidth": 80,
     "attributePosition": "auto"
   },
-  "organizeImports": {
-    "enabled": true
-  },
+  "organizeImports": { "enabled": true },
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
+      "recommended": false,
+      "a11y": {
+        "noAccessKey": "error",
+        "noAriaUnsupportedElements": "error",
+        "noAutofocus": "error",
+        "noBlankTarget": "error",
+        "noDistractingElements": "error",
+        "noHeaderScope": "error",
+        "noInteractiveElementToNoninteractiveRole": "error",
+        "noNoninteractiveElementToInteractiveRole": "error",
+        "noNoninteractiveTabindex": "error",
+        "noPositiveTabindex": "error",
+        "noRedundantAlt": "error",
+        "noRedundantRoles": "error",
+        "useAltText": "error",
+        "useAnchorContent": "error",
+        "useAriaActivedescendantWithTabindex": "error",
+        "useAriaPropsForRole": "error",
+        "useButtonType": "warn",
+        "useHeadingContent": "error",
+        "useHtmlLang": "error",
+        "useIframeTitle": "error",
+        "useKeyWithClickEvents": "error",
+        "useKeyWithMouseEvents": "error",
+        "useMediaCaption": "error",
+        "useValidAnchor": "error",
+        "useValidAriaProps": "error",
+        "useValidAriaRole": "error",
+        "useValidAriaValues": "error"
+      },
       "complexity": {
         "noExtraBooleanCast": "error",
         "noMultipleSpacesInRegularExpressionLiterals": "error",
         "noUselessCatch": "error",
+        "noUselessFragments": "warn",
         "noUselessLabel": "error",
         "noUselessLoneBlockStatements": "error",
         "noUselessRename": "warn",
@@ -32,6 +57,7 @@
         "useRegexLiterals": "error"
       },
       "correctness": {
+        "noChildrenProp": "error",
         "noConstAssign": "error",
         "noConstantCondition": "error",
         "noConstructorReturn": "error",
@@ -53,22 +79,31 @@
         "noUnsafeOptionalChaining": "error",
         "noUnusedLabels": "error",
         "noUnusedVariables": "error",
+        "useArrayLiterals": "error",
+        "useExhaustiveDependencies": "warn",
+        "useHookAtTopLevel": "error",
         "useIsNan": "error",
+        "useJsxKeyInIterable": "error",
         "useValidForDirection": "error",
         "useYield": "error"
       },
       "nursery": {
         "noDuplicateElseIf": "error",
+        "noLabelWithoutControl": "error",
+        "noUselessStringConcat": "error",
         "noUselessUndefinedInitialization": "warn",
-        "useArrayLiterals": "error",
+        "noYodaExpression": "warn",
         "useConsistentBuiltinInstantiation": "error"
       },
       "security": {
+        "noDangerouslySetInnerHtmlWithChildren": "error",
         "noGlobalEval": "error"
       },
       "style": {
         "noArguments": "error",
         "noCommaOperator": "error",
+        "noDefaultExport": "error",
+        "noImplicitBoolean": "warn",
         "noNonNullAssertion": "off",
         "noParameterAssign": "error",
         "noUselessElse": "warn",
@@ -78,20 +113,20 @@
         "useConst": "warn",
         "useFilenamingConvention": {
           "level": "error",
-          "options": {
-            "requireAscii": true,
-            "filenameCases": ["camelCase"]
-          }
+          "options": { "requireAscii": true, "filenameCases": ["kebab-case"] }
         },
+        "useFragmentSyntax": "warn",
         "useNodejsImportProtocol": "warn",
         "useNumericLiterals": "error",
         "useTemplate": "warn"
       },
       "suspicious": {
+        "noArrayIndexKey": "warn",
         "noAssignInExpressions": "error",
         "noAsyncPromiseExecutor": "error",
         "noCatchAssign": "error",
         "noClassAssign": "error",
+        "noCommentText": "error",
         "noCompareNegZero": "error",
         "noConfusingLabels": "error",
         "noConsoleLog": "error",
@@ -100,6 +135,7 @@
         "noDoubleEquals": "error",
         "noDuplicateCase": "error",
         "noDuplicateClassMembers": "error",
+        "noDuplicateJsxProps": "error",
         "noDuplicateObjectKeys": "error",
         "noDuplicateParameters": "error",
         "noEmptyBlockStatements": "error",
@@ -113,13 +149,13 @@
         "noRedeclare": "error",
         "noSelfCompare": "error",
         "noShadowRestrictedNames": "error",
+        "noUnsafeDeclarationMerging": "warn",
         "noUnsafeNegation": "error",
+        "useAwait": "error",
         "useDefaultSwitchClauseLast": "error",
         "useGetterReturn": "error",
-        "useValidTypeof": "error",
         "useIsArray": "error",
-        "useAwait": "error",
-        "noUnsafeDeclarationMerging": "warn"
+        "useValidTypeof": "error"
       }
     },
     "ignore": ["!.*.js"]
@@ -128,7 +164,7 @@
     "formatter": {
       "jsxQuoteStyle": "double",
       "quoteProperties": "asNeeded",
-      "trailingComma": "none",
+      "trailingCommas": "none",
       "semicolons": "always",
       "arrowParentheses": "always",
       "bracketSpacing": true,
@@ -138,11 +174,7 @@
     }
   },
   "overrides": [
-    {
-      "include": ["*.ts?(x)"]
-    },
-    {
-      "include": ["*.js?(x)", "*.mjs"]
-    }
+    { "include": ["*.ts?(x)"] },
+    { "include": ["*.js?(x)", "*.mjs"] }
   ]
 }

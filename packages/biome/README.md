@@ -30,8 +30,8 @@ Add scripts to your `package.json` if you haven't already:
     "scripts": {
             "format": "biome format . --write",
             "lint": "biome lint .",
-            "lint:fix": "biome lint . --apply",
-            "lint:fix:unsafe": "biome lint . --apply-unsafe"
+            "lint:fix": "biome lint . --write",
+            "lint:fix:unsafe": "biome lint . --unsafe"
         }
     }
     // ...
