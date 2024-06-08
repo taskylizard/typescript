@@ -1,6 +1,9 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.8.0/schema.json",
-  "vcs": { "clientKind": "git", "enabled": true },
+  "vcs": {
+    "clientKind": "git",
+    "enabled": true
+  },
   "formatter": {
     "enabled": true,
     "formatWithErrors": false,
@@ -10,7 +13,25 @@
     "lineWidth": 80,
     "attributePosition": "auto"
   },
-  "organizeImports": { "enabled": true },
+  "css": {
+    "linter": {
+      "enabled": true
+    },
+    "formatter": {
+      "enabled": true
+    }
+  },
+  "json": {
+    "linter": {
+      "enabled": true
+    },
+    "formatter": {
+      "enabled": true
+    }
+  },
+  "organizeImports": {
+    "enabled": true
+  },
   "linter": {
     "enabled": true,
     "rules": {
@@ -113,12 +134,21 @@
         "useConst": "warn",
         "useFilenamingConvention": {
           "level": "error",
-          "options": { "requireAscii": true, "filenameCases": ["kebab-case"] }
+          "options": {
+            "requireAscii": true,
+            "filenameCases": [
+              "kebab-case"
+            ]
+          }
         },
         "useFragmentSyntax": "warn",
         "useNodejsImportProtocol": "warn",
         "useNumericLiterals": "error",
-        "useTemplate": "warn"
+        "useTemplate": "warn",
+        "noNamespace": "error",
+        "useSelfClosingElements": "error",
+        "useImportType": "warn",
+        "noUnusedTemplateLiteral": "error"
       },
       "suspicious": {
         "noArrayIndexKey": "warn",
@@ -155,10 +185,16 @@
         "useDefaultSwitchClauseLast": "error",
         "useGetterReturn": "error",
         "useIsArray": "error",
-        "useValidTypeof": "error"
+        "useValidTypeof": "error",
+        "useNamespaceKeyword": "error",
+        "noEmptyInterface": "error",
+        "noApproximativeNumericConstant": "error",
+        "noSuspiciousSemicolonInJsx": "error"
       }
     },
-    "ignore": ["!.*.js"]
+    "ignore": [
+      "!.*.js"
+    ]
   },
   "javascript": {
     "formatter": {
@@ -174,7 +210,16 @@
     }
   },
   "overrides": [
-    { "include": ["*.ts?(x)"] },
-    { "include": ["*.js?(x)", "*.mjs"] }
+    {
+      "include": [
+        "*.ts?(x)"
+      ]
+    },
+    {
+      "include": [
+        "*.js?(x)",
+        "*.mjs"
+      ]
+    }
   ]
 }
