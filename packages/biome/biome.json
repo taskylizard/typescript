@@ -272,6 +272,21 @@
       }
     },
     {
+      "include": [
+        "entry-client.tsx",
+        "entry-server.tsx",
+        "index.tsx",
+        "app.tsx"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useFilenamingConvention": "off"
+          }
+        }
+      }
+    },
+    {
       "include": ["*.ts?(x)", "*.js?(x)", "*.mjs", "*.mts"]
     }
   ]
