@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.8.0/schema.json",
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "vcs": {
     "clientKind": "git",
     "enabled": true
@@ -30,6 +30,9 @@
     }
   },
   "organizeImports": {
+    "enabled": true
+  },
+  "assists": {
     "enabled": true
   },
   "linter": {
@@ -63,7 +66,8 @@
         "useValidAnchor": "error",
         "useValidAriaProps": "error",
         "useValidAriaRole": "error",
-        "useValidAriaValues": "error"
+        "useValidAriaValues": "error",
+        "noLabelWithoutControl": "error"
       },
       "complexity": {
         "noExtraBooleanCast": "error",
@@ -75,7 +79,10 @@
         "noUselessRename": "warn",
         "noUselessTernary": "error",
         "noWith": "error",
-        "useRegexLiterals": "error"
+        "useRegexLiterals": "error",
+        "noUselessStringConcat": "error",
+        "noUselessUndefinedInitialization": "warn",
+        "noExcessiveCognitiveComplexity": "warn"
       },
       "correctness": {
         "noChildrenProp": "error",
@@ -109,12 +116,7 @@
         "useYield": "error"
       },
       "nursery": {
-        "noDuplicateElseIf": "error",
-        "noLabelWithoutControl": "error",
-        "noUselessStringConcat": "error",
-        "noUselessUndefinedInitialization": "warn",
-        "noYodaExpression": "warn",
-        "useConsistentBuiltinInstantiation": "error"
+        "noDuplicateElseIf": "error"
       },
       "security": {
         "noDangerouslySetInnerHtmlWithChildren": "error",
@@ -136,9 +138,7 @@
           "level": "error",
           "options": {
             "requireAscii": true,
-            "filenameCases": [
-              "kebab-case"
-            ]
+            "filenameCases": ["kebab-case"]
           }
         },
         "useFragmentSyntax": "warn",
@@ -148,7 +148,53 @@
         "noNamespace": "error",
         "useSelfClosingElements": "error",
         "useImportType": "warn",
-        "noUnusedTemplateLiteral": "error"
+        "noUnusedTemplateLiteral": "error",
+        "noYodaExpression": "warn",
+        "useConsistentBuiltinInstantiation": "error",
+        "useNamingConvention": {
+          "level": "error",
+          "options": {
+            "strictCase": false,
+            "conventions": [
+              {
+                "selector": {
+                  "kind": "enum"
+                },
+                "formats": ["CONSTANT_CASE", "PascalCase"]
+              },
+              {
+                "selector": {
+                  "kind": "typeParameter"
+                },
+                "formats": ["PascalCase"]
+              },
+              {
+                "selector": {
+                  "kind": "any"
+                },
+                "match": "[ab_]|(.{2,})"
+              },
+              {
+                "selector": {
+                  "kind": "objectLiteralMember"
+                },
+                "match": ".*"
+              },
+              {
+                "selector": {
+                  "kind": "typeMember"
+                },
+                "match": ".*"
+              },
+              {
+                "selector": {
+                  "kind": "variable"
+                },
+                "match": ".*"
+              }
+            ]
+          }
+        }
       },
       "suspicious": {
         "noArrayIndexKey": "warn",
@@ -192,11 +238,10 @@
         "noSuspiciousSemicolonInJsx": "error"
       }
     },
-    "ignore": [
-      "!.*.js"
-    ]
+    "ignore": ["!.*.js", "!.*.ts?(x)", "!.*.js?(x)", "!.*.mjs", "!.*.mts"]
   },
   "javascript": {
+    "globals": ["Bun"],
     "formatter": {
       "jsxQuoteStyle": "double",
       "quoteProperties": "asNeeded",
@@ -211,15 +256,23 @@
   },
   "overrides": [
     {
-      "include": [
-        "*.ts?(x)"
-      ]
+      "include": ["*.tsx", "*.jsx"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useFilenamingConvention": {
+              "level": "error",
+              "options": {
+                "requireAscii": true,
+                "filenameCases": ["PascalCase"]
+              }
+            }
+          }
+        }
+      }
     },
     {
-      "include": [
-        "*.js?(x)",
-        "*.mjs"
-      ]
+      "include": ["*.ts?(x)", "*.js?(x)", "*.mjs", "*.mts"]
     }
   ]
 }

@@ -62,3 +62,170 @@ Add scripts to your `package.json` if you haven't already:
   // ...
 }
 ```
+
+### Rules
+
+The follow rules are enabled by default for a out-of-the-box experience.
+
+<details>
+  <summary>a11y</summary>
+  - noAccessKey — `error` 
+	- noAriaUnsupportedElements — `error` 
+	- noAutofocus — `error` 
+	- noBlankTarget — `error` 
+	- noDistractingElements — `error` 
+	- noHeaderScope — `error` 
+	- noInteractiveElementToNoninteractiveRole — `error` 
+	- noNoninteractiveElementToInteractiveRole — `error` 
+	- noNoninteractiveTabindex — `error` 
+	- noPositiveTabindex — `error` 
+	- noRedundantAlt — `error` 
+	- noRedundantRoles — `error` 
+	- useAltText — `error` 
+	- useAnchorContent — `error` 
+	- useAriaActivedescendantWithTabindex — `error` 
+	- useAriaPropsForRole — `error` 
+	- useButtonType — `warn` 
+	- useHeadingContent — `error` 
+	- useHtmlLang — `error` 
+	- useIframeTitle — `error` 
+	- useKeyWithClickEvents — `error` 
+	- useKeyWithMouseEvents — `error` 
+	- useMediaCaption — `error` 
+	- useValidAnchor — `error` 
+	- useValidAriaProps — `error` 
+	- useValidAriaRole — `error` 
+	- useValidAriaValues — `error` 
+	- noLabelWithoutControl — `error` 
+</details>
+
+<details>
+  <summary>complexity</summary>
+  - noExtraBooleanCast — `error` 
+	- noMultipleSpacesInRegularExpressionLiterals — `error` 
+	- noUselessCatch — `error` 
+	- noUselessFragments — `warn` 
+	- noUselessLabel — `error` 
+	- noUselessLoneBlockStatements — `error` 
+	- noUselessRename — `warn` 
+	- noUselessTernary — `error` 
+	- noWith — `error` 
+	- useRegexLiterals — `error` 
+	- noUselessStringConcat — `error` 
+	- noUselessUndefinedInitialization — `warn` 
+	- noExcessiveCognitiveComplexity — `warn` 
+</details>
+
+<details>
+  <summary>correctness</summary>
+  - noChildrenProp — `error` 
+	- noConstAssign — `error` 
+	- noConstantCondition — `error` 
+	- noConstructorReturn — `error` 
+	- noEmptyCharacterClassInRegex — `error` 
+	- noEmptyPattern — `error` 
+	- noGlobalObjectCalls — `error` 
+	- noInnerDeclarations — `error` 
+	- noInvalidConstructorSuper — `error` 
+	- noNewSymbol — `error` 
+	- noNonoctalDecimalEscape — `error` 
+	- noPrecisionLoss — `error` 
+	- noSelfAssign — `error` 
+	- noSetterReturn — `error` 
+	- noSwitchDeclarations — `error` 
+	- noUndeclaredVariables — `error` 
+	- noUnreachable — `error` 
+	- noUnreachableSuper — `error` 
+	- noUnsafeFinally — `error` 
+	- noUnsafeOptionalChaining — `error` 
+	- noUnusedLabels — `error` 
+	- noUnusedVariables — `error` 
+	- useArrayLiterals — `error` 
+	- useExhaustiveDependencies — `warn` 
+	- useHookAtTopLevel — `error` 
+	- useIsNan — `error` 
+	- useJsxKeyInIterable — `error` 
+	- useValidForDirection — `error` 
+	- useYield — `error` 
+</details>
+
+<details>
+  <summary>nursery</summary>
+  - noDuplicateElseIf — `error` 
+</details>
+
+<details>
+  <summary>security</summary>
+  - noDangerouslySetInnerHtmlWithChildren — `error` 
+	- noGlobalEval — `error` 
+</details>
+
+<details>
+  <summary>style</summary>
+  - noArguments — `error` 
+	- noCommaOperator — `error` 
+	- noDefaultExport — `error` 
+	- noImplicitBoolean — `warn` 
+	- noNonNullAssertion — `off` 
+	- noParameterAssign — `error` 
+	- noUselessElse — `warn` 
+	- noVar — `error` 
+	- useBlockStatements — `off` 
+	- useCollapsedElseIf — `warn` 
+	- useConst — `warn` 
+	- useFilenamingConvention — `See config object in biome.json` 
+	- useFragmentSyntax — `warn` 
+	- useNodejsImportProtocol — `warn` 
+	- useNumericLiterals — `error` 
+	- useTemplate — `warn` 
+	- noNamespace — `error` 
+	- useSelfClosingElements — `error` 
+	- useImportType — `warn` 
+	- noUnusedTemplateLiteral — `error` 
+	- noYodaExpression — `warn` 
+	- useConsistentBuiltinInstantiation — `error` 
+	- useNamingConvention — `See config object in biome.json` 
+</details>
+
+<details>
+  <summary>suspicious</summary>
+  - noArrayIndexKey — `warn` 
+	- noAssignInExpressions — `error` 
+	- noAsyncPromiseExecutor — `error` 
+	- noCatchAssign — `error` 
+	- noClassAssign — `error` 
+	- noCommentText — `error` 
+	- noCompareNegZero — `error` 
+	- noConfusingLabels — `error` 
+	- noConsoleLog — `error` 
+	- noControlCharactersInRegex — `error` 
+	- noDebugger — `error` 
+	- noDoubleEquals — `error` 
+	- noDuplicateCase — `error` 
+	- noDuplicateClassMembers — `error` 
+	- noDuplicateJsxProps — `error` 
+	- noDuplicateObjectKeys — `error` 
+	- noDuplicateParameters — `error` 
+	- noEmptyBlockStatements — `error` 
+	- noFallthroughSwitchClause — `error` 
+	- noFunctionAssign — `error` 
+	- noGlobalAssign — `error` 
+	- noImportAssign — `error` 
+	- noLabelVar — `error` 
+	- noMisleadingCharacterClass — `error` 
+	- noPrototypeBuiltins — `error` 
+	- noRedeclare — `error` 
+	- noSelfCompare — `error` 
+	- noShadowRestrictedNames — `error` 
+	- noUnsafeDeclarationMerging — `warn` 
+	- noUnsafeNegation — `error` 
+	- useAwait — `error` 
+	- useDefaultSwitchClauseLast — `error` 
+	- useGetterReturn — `error` 
+	- useIsArray — `error` 
+	- useValidTypeof — `error` 
+	- useNamespaceKeyword — `error` 
+	- noEmptyInterface — `error` 
+	- noApproximativeNumericConstant — `error` 
+	- noSuspiciousSemicolonInJsx — `error` 
+</details>
