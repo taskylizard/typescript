@@ -1,5 +1,11 @@
 # @taskylizard/biome-config
 
+## 1.0.2
+
+### Patch Changes
+
+- 6917c71: Update to biome 1.9.3
+
 ## 1.0.1
 
 ### Patch Changes
