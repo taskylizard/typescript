@@ -1,5 +1,11 @@
 # @taskylizard/biome-config
 
+## 1.0.3
+
+### Patch Changes
+
+- d340d87: Ignore fileNamingConventions for solidstart files
+
 ## 1.0.2
 
 ### Patch Changes
