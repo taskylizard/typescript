@@ -138,7 +138,9 @@
           "level": "error",
           "options": {
             "requireAscii": true,
-            "filenameCases": ["kebab-case"]
+            "filenameCases": [
+              "kebab-case"
+            ]
           }
         },
         "useFragmentSyntax": "warn",
@@ -160,13 +162,18 @@
                 "selector": {
                   "kind": "enum"
                 },
-                "formats": ["CONSTANT_CASE", "PascalCase"]
+                "formats": [
+                  "CONSTANT_CASE",
+                  "PascalCase"
+                ]
               },
               {
                 "selector": {
                   "kind": "typeParameter"
                 },
-                "formats": ["PascalCase"]
+                "formats": [
+                  "PascalCase"
+                ]
               },
               {
                 "selector": {
@@ -238,10 +245,18 @@
         "noSuspiciousSemicolonInJsx": "error"
       }
     },
-    "ignore": ["!.*.js", "!.*.ts?(x)", "!.*.js?(x)", "!.*.mjs", "!.*.mts"]
+    "ignore": [
+      "!.*.js",
+      "!.*.ts?(x)",
+      "!.*.js?(x)",
+      "!.*.mjs",
+      "!.*.mts"
+    ]
   },
   "javascript": {
-    "globals": ["Bun"],
+    "globals": [
+      "Bun"
+    ],
     "formatter": {
       "jsxQuoteStyle": "double",
       "quoteProperties": "asNeeded",
@@ -256,7 +271,10 @@
   },
   "overrides": [
     {
-      "include": ["*.tsx", "*.jsx"],
+      "include": [
+        "*.tsx",
+        "*.jsx"
+      ],
       "linter": {
         "rules": {
           "style": {
@@ -264,7 +282,9 @@
               "level": "error",
               "options": {
                 "requireAscii": true,
-                "filenameCases": ["PascalCase"]
+                "filenameCases": [
+                  "PascalCase"
+                ]
               }
             }
           }
@@ -276,7 +296,8 @@
         "entry-client.tsx",
         "entry-server.tsx",
         "index.tsx",
-        "app.tsx"
+        "app.tsx",
+        "[...404].tsx"
       ],
       "linter": {
         "rules": {
@@ -287,7 +308,12 @@
       }
     },
     {
-      "include": ["*.ts?(x)", "*.js?(x)", "*.mjs", "*.mts"]
+      "include": [
+        "*.ts?(x)",
+        "*.js?(x)",
+        "*.mjs",
+        "*.mts"
+      ]
     }
   ]
 }
