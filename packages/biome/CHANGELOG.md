@@ -1,5 +1,11 @@
 # @taskylizard/biome-config
 
+## 1.0.4
+
+### Patch Changes
+
+- bd1490f: ignore `[...404].tsx`
+
 ## 1.0.3
 
 ### Patch Changes
