@@ -40,6 +40,8 @@
     "rules": {
       "recommended": false,
       "a11y": {
+        "useValidLang": "error",
+        "noAriaHiddenOnFocusable": "error",
         "noAccessKey": "error",
         "noAriaUnsupportedElements": "error",
         "noAutofocus": "error",
@@ -70,6 +72,9 @@
         "noLabelWithoutControl": "error"
       },
       "complexity": {
+        "useFlatMap": "error",
+        "noThisInStatic": "error",
+        "useSimplifiedLogicExpression": "error",
         "noExtraBooleanCast": "error",
         "noMultipleSpacesInRegularExpressionLiterals": "error",
         "noUselessCatch": "error",
@@ -116,6 +121,7 @@
         "useYield": "error"
       },
       "nursery": {
+        "noSubstr": "error",
         "noDuplicateElseIf": "error"
       },
       "security": {
@@ -123,6 +129,7 @@
         "noGlobalEval": "error"
       },
       "style": {
+        "useNumberNamespace": "error",
         "noArguments": "error",
         "noCommaOperator": "error",
         "noDefaultExport": "error",
@@ -138,9 +145,7 @@
           "level": "error",
           "options": {
             "requireAscii": true,
-            "filenameCases": [
-              "kebab-case"
-            ]
+            "filenameCases": ["kebab-case"]
           }
         },
         "useFragmentSyntax": "warn",
@@ -162,18 +167,13 @@
                 "selector": {
                   "kind": "enum"
                 },
-                "formats": [
-                  "CONSTANT_CASE",
-                  "PascalCase"
-                ]
+                "formats": ["CONSTANT_CASE", "PascalCase"]
               },
               {
                 "selector": {
                   "kind": "typeParameter"
                 },
-                "formats": [
-                  "PascalCase"
-                ]
+                "formats": ["PascalCase"]
               },
               {
                 "selector": {
@@ -245,23 +245,15 @@
         "noSuspiciousSemicolonInJsx": "error"
       }
     },
-    "ignore": [
-      "!.*.js",
-      "!.*.ts?(x)",
-      "!.*.js?(x)",
-      "!.*.mjs",
-      "!.*.mts"
-    ]
+    "ignore": ["!.*.js", "!.*.ts?(x)", "!.*.js?(x)", "!.*.mjs", "!.*.mts"]
   },
   "javascript": {
-    "globals": [
-      "Bun"
-    ],
+    "globals": ["Bun", "Deno"],
     "formatter": {
       "jsxQuoteStyle": "double",
       "quoteProperties": "asNeeded",
       "trailingCommas": "none",
-      "semicolons": "always",
+      "semicolons": "asNeeded",
       "arrowParentheses": "always",
       "bracketSpacing": true,
       "bracketSameLine": false,
@@ -271,10 +263,7 @@
   },
   "overrides": [
     {
-      "include": [
-        "*.tsx",
-        "*.jsx"
-      ],
+      "include": ["*.tsx", "*.jsx"],
       "linter": {
         "rules": {
           "style": {
@@ -282,9 +271,7 @@
               "level": "error",
               "options": {
                 "requireAscii": true,
-                "filenameCases": [
-                  "PascalCase"
-                ]
+                "filenameCases": ["PascalCase"]
               }
             }
           }
@@ -308,12 +295,7 @@
       }
     },
     {
-      "include": [
-        "*.ts?(x)",
-        "*.js?(x)",
-        "*.mjs",
-        "*.mts"
-      ]
+      "include": ["*.ts?(x)", "*.js?(x)", "*.mjs", "*.mts"]
     }
   ]
 }

@@ -69,7 +69,9 @@ The follow rules are enabled by default for a out-of-the-box experience.
 
 <details>
   <summary>a11y</summary>
-  - noAccessKey — `error` 
+  - useValidLang — `error` 
+	- noAriaHiddenOnFocusable — `error` 
+	- noAccessKey — `error` 
 	- noAriaUnsupportedElements — `error` 
 	- noAutofocus — `error` 
 	- noBlankTarget — `error` 
@@ -101,7 +103,10 @@ The follow rules are enabled by default for a out-of-the-box experience.
 
 <details>
   <summary>complexity</summary>
-  - noExtraBooleanCast — `error` 
+  - useFlatMap — `error` 
+	- noThisInStatic — `error` 
+	- useSimplifiedLogicExpression — `error` 
+	- noExtraBooleanCast — `error` 
 	- noMultipleSpacesInRegularExpressionLiterals — `error` 
 	- noUselessCatch — `error` 
 	- noUselessFragments — `warn` 
@@ -151,7 +156,8 @@ The follow rules are enabled by default for a out-of-the-box experience.
 
 <details>
   <summary>nursery</summary>
-  - noDuplicateElseIf — `error` 
+  - noSubstr — `error` 
+	- noDuplicateElseIf — `error` 
 </details>
 
 <details>
@@ -162,7 +168,8 @@ The follow rules are enabled by default for a out-of-the-box experience.
 
 <details>
   <summary>style</summary>
-  - noArguments — `error` 
+  - useNumberNamespace — `error` 
+	- noArguments — `error` 
 	- noCommaOperator — `error` 
 	- noDefaultExport — `error` 
 	- noImplicitBoolean — `warn` 
