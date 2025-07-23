@@ -1,5 +1,11 @@
 # @taskylizard/biome-config
 
+## 1.0.6
+
+### Patch Changes
+
+- f1e9074: Update for biome v2
+
 ## 1.0.5
 
 ### Patch Changes
