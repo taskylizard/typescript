@@ -1,5 +1,5 @@
 {
-  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.1.2/schema.json",
   "vcs": {
     "clientKind": "git",
     "enabled": true
@@ -29,11 +29,13 @@
       "enabled": true
     }
   },
-  "organizeImports": {
-    "enabled": true
-  },
-  "assists": {
-    "enabled": true
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
   },
   "linter": {
     "enabled": true,
@@ -45,7 +47,6 @@
         "noAccessKey": "error",
         "noAriaUnsupportedElements": "error",
         "noAutofocus": "error",
-        "noBlankTarget": "error",
         "noDistractingElements": "error",
         "noHeaderScope": "error",
         "noInteractiveElementToNoninteractiveRole": "error",
@@ -76,18 +77,20 @@
         "noThisInStatic": "error",
         "useSimplifiedLogicExpression": "error",
         "noExtraBooleanCast": "error",
-        "noMultipleSpacesInRegularExpressionLiterals": "error",
         "noUselessCatch": "error",
         "noUselessFragments": "warn",
         "noUselessLabel": "error",
         "noUselessLoneBlockStatements": "error",
         "noUselessRename": "warn",
         "noUselessTernary": "error",
-        "noWith": "error",
         "useRegexLiterals": "error",
         "noUselessStringConcat": "error",
         "noUselessUndefinedInitialization": "warn",
-        "noExcessiveCognitiveComplexity": "warn"
+        "noExcessiveCognitiveComplexity": "warn",
+        "noAdjacentSpacesInRegex": "error",
+        "noArguments": "error",
+        "noCommaOperator": "error",
+        "useNumericLiterals": "error"
       },
       "correctness": {
         "noChildrenProp": "error",
@@ -99,7 +102,6 @@
         "noGlobalObjectCalls": "error",
         "noInnerDeclarations": "error",
         "noInvalidConstructorSuper": "error",
-        "noNewSymbol": "error",
         "noNonoctalDecimalEscape": "error",
         "noPrecisionLoss": "error",
         "noSelfAssign": "error",
@@ -112,32 +114,28 @@
         "noUnsafeOptionalChaining": "error",
         "noUnusedLabels": "error",
         "noUnusedVariables": "error",
-        "useArrayLiterals": "error",
         "useExhaustiveDependencies": "warn",
         "useHookAtTopLevel": "error",
         "useIsNan": "error",
         "useJsxKeyInIterable": "error",
         "useValidForDirection": "error",
-        "useYield": "error"
+        "useYield": "error",
+        "noInvalidBuiltinInstantiation": "error",
+        "useValidTypeof": "error"
       },
-      "nursery": {
-        "noSubstr": "error",
-        "noDuplicateElseIf": "error"
-      },
+      "nursery": {},
       "security": {
         "noDangerouslySetInnerHtmlWithChildren": "error",
-        "noGlobalEval": "error"
+        "noGlobalEval": "error",
+        "noBlankTarget": "error"
       },
       "style": {
         "useNumberNamespace": "error",
-        "noArguments": "error",
-        "noCommaOperator": "error",
         "noDefaultExport": "error",
         "noImplicitBoolean": "warn",
         "noNonNullAssertion": "off",
         "noParameterAssign": "error",
         "noUselessElse": "warn",
-        "noVar": "error",
         "useBlockStatements": "off",
         "useCollapsedElseIf": "warn",
         "useConst": "warn",
@@ -145,12 +143,13 @@
           "level": "error",
           "options": {
             "requireAscii": true,
-            "filenameCases": ["kebab-case"]
+            "filenameCases": [
+              "kebab-case"
+            ]
           }
         },
         "useFragmentSyntax": "warn",
         "useNodejsImportProtocol": "warn",
-        "useNumericLiterals": "error",
         "useTemplate": "warn",
         "noNamespace": "error",
         "useSelfClosingElements": "error",
@@ -167,13 +166,18 @@
                 "selector": {
                   "kind": "enum"
                 },
-                "formats": ["CONSTANT_CASE", "PascalCase"]
+                "formats": [
+                  "CONSTANT_CASE",
+                  "PascalCase"
+                ]
               },
               {
                 "selector": {
                   "kind": "typeParameter"
                 },
-                "formats": ["PascalCase"]
+                "formats": [
+                  "PascalCase"
+                ]
               },
               {
                 "selector": {
@@ -201,7 +205,9 @@
               }
             ]
           }
-        }
+        },
+        "useArrayLiterals": "error",
+        "noSubstr": "error"
       },
       "suspicious": {
         "noArrayIndexKey": "warn",
@@ -212,7 +218,6 @@
         "noCommentText": "error",
         "noCompareNegZero": "error",
         "noConfusingLabels": "error",
-        "noConsoleLog": "error",
         "noControlCharactersInRegex": "error",
         "noDebugger": "error",
         "noDoubleEquals": "error",
@@ -238,17 +243,35 @@
         "useDefaultSwitchClauseLast": "error",
         "useGetterReturn": "error",
         "useIsArray": "error",
-        "useValidTypeof": "error",
         "useNamespaceKeyword": "error",
         "noEmptyInterface": "error",
         "noApproximativeNumericConstant": "error",
-        "noSuspiciousSemicolonInJsx": "error"
+        "noSuspiciousSemicolonInJsx": "error",
+        "noWith": "error",
+        "noDuplicateElseIf": "error",
+        "noVar": "error",
+        "noConsole": {
+          "level": "error",
+          "options": {
+            "allow": [
+              "log"
+            ]
+          }
+        }
       }
     },
-    "ignore": ["!.*.js", "!.*.ts?(x)", "!.*.js?(x)", "!.*.mjs", "!.*.mts"]
+    "includes": [
+      "**",
+      "!**/!.*.js",
+      "!**/!.*.mjs",
+      "!**/!.*.mts"
+    ]
   },
   "javascript": {
-    "globals": ["Bun", "Deno"],
+    "globals": [
+      "Bun",
+      "Deno"
+    ],
     "formatter": {
       "jsxQuoteStyle": "double",
       "quoteProperties": "asNeeded",
@@ -263,7 +286,10 @@
   },
   "overrides": [
     {
-      "include": ["*.tsx", "*.jsx"],
+      "includes": [
+        "**/*.tsx",
+        "**/*.jsx"
+      ],
       "linter": {
         "rules": {
           "style": {
@@ -271,7 +297,9 @@
               "level": "error",
               "options": {
                 "requireAscii": true,
-                "filenameCases": ["PascalCase"]
+                "filenameCases": [
+                  "PascalCase"
+                ]
               }
             }
           }
@@ -279,12 +307,12 @@
       }
     },
     {
-      "include": [
-        "entry-client.tsx",
-        "entry-server.tsx",
-        "index.tsx",
-        "app.tsx",
-        "[...404].tsx"
+      "includes": [
+        "**/entry-client.tsx",
+        "**/entry-server.tsx",
+        "**/index.tsx",
+        "**/app.tsx",
+        "**/\\[...404\\].tsx"
       ],
       "linter": {
         "rules": {
@@ -295,7 +323,10 @@
       }
     },
     {
-      "include": ["*.ts?(x)", "*.js?(x)", "*.mjs", "*.mts"]
+      "includes": [
+        "**/*.mjs",
+        "**/*.mts"
+      ]
     }
   ]
 }
